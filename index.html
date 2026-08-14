@@ -3,16 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>17 — UI 设计师 & 设计工程师</title>
-  <meta name="description" content="17 是一位专注于极简秩序与全感官体验的 UI 设计工程师。将 1 个像素的底层规范与 7 维立体的流体动效深度融合。">
+  <title>17 — UI/UX 设计师作品集</title>
+  <meta name="description" content="17 是一位专注于极简秩序与全感官体验的 UI/UX 设计师。将 1 个像素的底层规范与 7 维立体的流体动效深度融合。">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="logo.png">
   <link rel="stylesheet" href="styles.css">
   
   <!-- 预加载 Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const saved = localStorage.getItem("site-theme") || 
+        (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
 </head>
 <body>
+
+  <!-- 全屏白场平滑淡入淡出转场幕布 -->
+  <div class="page-transition-curtain" id="page-curtain"></div>
 
   <!-- 全屏物理粒子 Canvas (Rows.gg 动力学引擎驱动) -->
   <canvas id="logo-assembly-canvas" class="logo-canvas" aria-hidden="true" data-logo-assembly-canvas="true"></canvas>
@@ -78,7 +91,18 @@
          3. JIB.DESIGN 样式：精选项目画廊 (Selected Work Shot-Well)
          ========================================== -->
     <section class="shotwell-section">
-      <h2 class="section-caption-label">selected work · 精选项目</h2>
+      <div class="shotwell-header-row">
+        <h2 class="section-caption-label">selected work · 精选项目</h2>
+        <a href="projects.html" class="rows-more-btn" id="btn-view-all-projects" title="查看全部项目列表">
+          <span class="rows-more-text">全部项目</span>
+          <span class="rows-demo-arrow" aria-hidden="true">
+            <svg width="28" height="13" viewBox="0 0 28 13" fill="none">
+              <path class="rows-arrow-tail" d="M2 6.5h24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+              <path class="rows-arrow-head" d="M11 3 15 6.5 11 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </span>
+        </a>
+      </div>
     </section>
 
   </main>
@@ -321,7 +345,7 @@
             
             <div class="tracker-pill-item active" data-dim="1">
               <div class="pill-left">
-                <span class="pill-badge-num red">1</span>
+                <span class="pill-badge-num">1</span>
                 <span>1D 文字与语意 · 认知清晰度与人本文案</span>
               </div>
               <span class="pill-tag">01</span>
@@ -329,7 +353,7 @@
 
             <div class="tracker-pill-item" data-dim="2">
               <div class="pill-left">
-                <span class="pill-badge-num dark">2</span>
+                <span class="pill-badge-num">2</span>
                 <span>2D 视觉与栅格 · 8px 基准与原子化 Tokens</span>
               </div>
               <span class="pill-tag">02</span>
@@ -337,7 +361,7 @@
 
             <div class="tracker-pill-item" data-dim="3">
               <div class="pill-left">
-                <span class="pill-badge-num dark">3</span>
+                <span class="pill-badge-num">3</span>
                 <span>3D 空间与景深 · Z 轴层级与空间计算</span>
               </div>
               <span class="pill-tag">03</span>
@@ -345,7 +369,7 @@
 
             <div class="tracker-pill-item" data-dim="4">
               <div class="pill-left">
-                <span class="pill-badge-num dark">4</span>
+                <span class="pill-badge-num">4</span>
                 <span>4D 时间与动效 · 60FPS 阻尼弹簧物理曲线</span>
               </div>
               <span class="pill-tag">04</span>
@@ -353,7 +377,7 @@
 
             <div class="tracker-pill-item" data-dim="5">
               <div class="pill-left">
-                <span class="pill-badge-num dark">5</span>
+                <span class="pill-badge-num">5</span>
                 <span>5D 行为与反馈 · 状态机闭环与触觉震动</span>
               </div>
               <span class="pill-tag">05</span>
@@ -361,7 +385,7 @@
 
             <div class="tracker-pill-item" data-dim="6">
               <div class="pill-left">
-                <span class="pill-badge-num dark">6</span>
+                <span class="pill-badge-num">6</span>
                 <span>6D 情境与多端 · 自适应深浅色与全端响应</span>
               </div>
               <span class="pill-tag">06</span>
@@ -369,7 +393,7 @@
 
             <div class="tracker-pill-item" data-dim="7">
               <div class="pill-left">
-                <span class="pill-badge-num amber">7</span>
+                <span class="pill-badge-num">7</span>
                 <span>7D 情感与智能 · 意图预判与心流惊喜</span>
               </div>
               <span class="pill-tag">07</span>
@@ -403,8 +427,12 @@
         </p>
 
         <div class="footer-actions">
-          <button class="btn-pill-primary" onclick="navigator.clipboard.writeText('yanjq957@gmail.com'); alert('已复制 17 的联系邮箱: yanjq957@gmail.com');">
-            复制邮箱 (yanjq957@gmail.com)
+          <button id="btn-copy-email" class="btn-pill-primary" onclick="copyContactEmail('yanjq957@gmail.com', this)">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: -2px;">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>复制邮箱 (yanjq957@gmail.com)</span>
           </button>
           <a href="https://github.com" target="_blank" class="btn-text-link">GitHub ↗</a>
           <a href="https://x.com" target="_blank" class="btn-text-link">X / 即刻 ↗</a>
@@ -493,6 +521,114 @@
         updateSectionContent(dimHeading, dimDesc, DIM_DATA[dim]);
       });
     });
+
+    // 绑定 Rows.gg 官方 1:1「全部项目」蓄力发射交互
+    const moreBtn = document.getElementById("btn-view-all-projects");
+    if (moreBtn) {
+      moreBtn.addEventListener("click", (e) => {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+        e.preventDefault();
+        const href = moreBtn.getAttribute("href") || "projects.html";
+        if (typeof window.triggerRowsDemoArrow === "function") {
+          window.triggerRowsDemoArrow(moreBtn, href);
+        } else {
+          window.location.href = href;
+        }
+      });
+    }
+
+    // 绑定 Shot-Well 卡片点击跳转至作品详情页
+    document.querySelectorAll(".shotwell-card").forEach(card => {
+      card.addEventListener("click", () => {
+        const pageCurtain = document.getElementById("page-curtain");
+        if (pageCurtain) {
+          pageCurtain.classList.add("is-active");
+        }
+        setTimeout(() => {
+          window.location.href = "project-detail.html";
+        }, 240);
+      });
+    });
+
+    // 3. 全局邮箱复制与 Toast 优雅轻提示逻辑
+    let toastTimeout = null;
+    function showToast(message, email) {
+      let toast = document.getElementById("global-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "global-toast";
+        toast.className = "global-toast";
+        document.body.appendChild(toast);
+      }
+      
+      const emailHtml = email ? `<span class="toast-email-val">(${email})</span>` : "";
+      toast.innerHTML = `
+        <span class="toast-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        <span class="toast-text">${message} ${emailHtml}</span>
+      `;
+      
+      toast.classList.remove("toast-hide");
+      toast.classList.add("toast-show");
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("toast-show");
+        toast.classList.add("toast-hide");
+        setTimeout(() => {
+          if (toast && toast.classList.contains("toast-hide")) {
+            toast.remove();
+          }
+        }, 260);
+      }, 2400);
+    }
+
+    function copyContactEmail(email, btnEl) {
+      const emailText = email || "yanjq957@gmail.com";
+      
+      // 剪贴板复制逻辑 (兼容现代 Clipboard API 与 ExecCommand Fallback)
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(emailText).catch(() => {
+          fallbackCopy(emailText);
+        });
+      } else {
+        fallbackCopy(emailText);
+      }
+
+      showToast("已成功复制 17 的联系邮箱", emailText);
+
+      // 按钮即时微交互反馈
+      if (btnEl) {
+        const originalContent = btnEl.innerHTML;
+        btnEl.innerHTML = `
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 6px; vertical-align: -2px; color: #22c55e;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>已复制成功</span>
+        `;
+        setTimeout(() => {
+          btnEl.innerHTML = originalContent;
+        }, 2200);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+      } catch (e) {}
+      document.body.removeChild(textArea);
+    }
   </script>
 
   <!-- 物理粒子动力学引擎 (集成 Rows.gg 算法) -->

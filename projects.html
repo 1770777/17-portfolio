@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>UI/UX 设计作品集 — 17 Portfolio</title>
+  <meta name="description" content="17 的 UI/UX 设计作品集：界面视觉美学、交互架构、设计系统、移动端与 Web 数字产品体验。">
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="logo.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script>
+    (function() {
+      const saved = localStorage.getItem("site-theme") || 
+        (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", saved);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- 全屏白场平滑淡入淡出转场幕布 -->
+  <div class="page-transition-curtain is-active" id="page-curtain"></div>
+
+  <div class="projects-page-container">
+
+    <!-- 顶部导航栏 -->
+    <header class="projects-nav-header stagger-item stagger-delay-1">
+      <a href="index.html" class="btn-back-home" id="btn-back-home" title="返回首页">
+        <span class="back-arrow">←</span>
+        <span>返回首页</span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-tertiary);">17.PORTFOLIO / UI·UX</span>
+        <button id="btn-theme-toggle" class="theme-toggle-btn" title="切换深浅色主题" aria-label="切换深浅色主题">
+          <svg class="theme-toggle-svg" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
+            <defs>
+              <mask id="theme-moon-mask">
+                <rect x="0" y="0" width="24" height="24" fill="white" />
+                <circle class="theme-crescent-mask" cx="19" cy="7" r="5" fill="black" />
+              </mask>
+            </defs>
+            <g stroke="currentColor" stroke-linecap="round">
+              <circle cx="12" cy="12" r="5" fill="currentColor" mask="url(#theme-moon-mask)" class="theme-sun-center" />
+              <path d="M12 1.4v2.4" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="m20.3 3.7-2.5 2.5" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="M22.6 12h-2.4" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="m20.3 20.3-2.5-2.5" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="M12 22.6v-2.4" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="m3.7 20.3 2.5-2.5" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="M1.4 12h2.4" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+              <path d="m3.7 3.7 2.5 2.5" fill="none" stroke-width="2" stroke-linejoin="round" class="theme-ray" />
+            </g>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 标题介绍区 -->
+    <section class="projects-hero-intro stagger-item stagger-delay-2">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+        <span style="display: inline-block; width: 6px; height: 6px; border-radius: 50%; background-color: var(--accent);"></span>
+        <span class="section-caption-label" style="margin-bottom: 0;">selected works & portfolio · UI/UX 设计作品集</span>
+      </div>
+      <h1 class="projects-hero-title">精选设计项目与作品集</h1>
+      <p class="projects-hero-sub">
+        专注于界面视觉美学、交互架构与设计系统，涵盖 Web 应用、移动端产品、高密度工作流与空间计算的个人项目作品归档。
+      </p>
+    </section>
+
+    <!-- 2列项目画廊网格 (直接每行两个灰底画板往下排列，无多余文案) -->
+    <div class="projects-grid-2col">
+
+      <!-- 项目 1: Ale Aceves (叙事画板) -->
+      <div class="shotwell-card stagger-item stagger-delay-3">
+        <div class="shotwell-artboard">
+          <div class="artboard-nav">
+            <span class="artboard-brand">ale aceves</span>
+            <span>about · work · service · contact</span>
+            <span>● Bali, Indonesia 6:18pm</span>
+          </div>
+          <h4 class="artboard-hero-title">
+            Where aesthetic meets strategy. I craft immersive visual narratives that capture your brand’s essence and convert viewers into buyers.
+          </h4>
+          <div class="artboard-bottom-row">
+            <div class="artboard-thumbs-grid">
+              <div class="artboard-thumb" style="background: linear-gradient(135deg, #d8e2ec, #a4bad0); position: relative;">
+                <div style="position: absolute; bottom: 3px; left: 4px; font-size: 6px; font-family: var(--font-mono); color: #2c3e50;">CLOUDS</div>
+              </div>
+              <div class="artboard-thumb" style="background: linear-gradient(135deg, #e5ded7, #bfb2a4); position: relative;">
+                <div style="position: absolute; bottom: 3px; left: 4px; font-size: 6px; font-family: var(--font-mono); color: #4a3b2c;">INTERIOR</div>
+              </div>
+              <div class="artboard-thumb" style="background: linear-gradient(135deg, #8f9e80, #5a6b4d); position: relative;">
+                <div style="position: absolute; bottom: 3px; left: 4px; font-size: 6px; font-family: var(--font-mono); color: #ffffff;">MATCHA</div>
+              </div>
+            </div>
+            <div class="artboard-step-list">
+              <span>— Creative strategy</span>
+              <span>— Storyboarding</span>
+              <span>— Content filming</span>
+              <span>— Engagement-led editing</span>
+              <span>— Performance analytics</span>
+              <span>— Content optimization</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 2: Skincare Flow (移动端三联屏) -->
+      <div class="shotwell-card stagger-item stagger-delay-4">
+        <div class="shotwell-artboard" style="padding: 10px 14px;">
+          <div class="mobile-tri-screen">
+            <div class="mobile-mockup-frame">
+              <div class="mobile-time-bar"><span>9:41</span><span>📶 🔋</span></div>
+              <div style="font-size: 6.5px; font-weight: 700; color: var(--ink); line-height: 1.3;">Where aesthetic meets strategy.</div>
+              <div style="display: flex; gap: 2px; margin-top: auto;">
+                <div style="flex: 1; height: 26px; border-radius: 2px; background: linear-gradient(135deg, #d8e2ec, #a4bad0);"></div>
+                <div style="flex: 1; height: 26px; border-radius: 2px; background: linear-gradient(135deg, #e5ded7, #bfb2a4);"></div>
+                <div style="flex: 1; height: 26px; border-radius: 2px; background: linear-gradient(135deg, #8f9e80, #5a6b4d);"></div>
+              </div>
+            </div>
+            <div class="mobile-mockup-frame dark-modal">
+              <div class="mobile-time-bar" style="color: rgba(255,255,255,0.5);"><span>9:41</span><span>✕</span></div>
+              <div class="mobile-filter-pills">
+                <span class="mobile-pill">All</span>
+                <span class="mobile-pill">Unboxing</span>
+                <span class="mobile-pill active">Product review ✓</span>
+                <span class="mobile-pill">Experiences</span>
+                <span class="mobile-pill">Travel & Hotel</span>
+                <span class="mobile-pill">Theme Parks</span>
+              </div>
+              <div style="display: flex; justify-content: center;">
+                <div style="width: 14px; height: 14px; border-radius: 50%; background: #ffffff; display: flex; align-items: center; justify-content: center; font-size: 8px; color: #000;">✓</div>
+              </div>
+            </div>
+            <div class="mobile-mockup-frame">
+              <div class="mobile-time-bar"><span>9:41</span><span>≡</span></div>
+              <div style="font-size: 6.5px; font-weight: 700; color: var(--ink);">Skincare Routine — Morning</div>
+              <div style="height: 40px; border-radius: 3px; background: linear-gradient(135deg, #e0d5c8, #b59e87); margin-top: auto; position: relative;">
+                <div style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 7px; color: #fff;">▶</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 3: Kinetic Pro (量化交易终端) -->
+      <div class="shotwell-card stagger-item stagger-delay-5">
+        <div class="shotwell-artboard">
+          <div class="artboard-nav">
+            <span class="artboard-brand">KINETIC_PRO.TERMINAL</span>
+            <span style="color: var(--ink-secondary);">BTC/USDT $96,420.50</span>
+            <span>120FPS FEED</span>
+          </div>
+          <div style="display: flex; gap: 12px; height: 65px; margin: 8px 0; align-items: flex-end;">
+            <div style="flex: 2; height: 100%; border: 1px dashed var(--border-subtle); border-radius: 4px; padding: 4px; display: flex; align-items: flex-end; gap: 3px;">
+              <div style="width: 6px; height: 35%; background: var(--ink-tertiary); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 50%; background: var(--ink); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 40%; background: var(--ink-tertiary); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 75%; background: var(--ink); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 90%; background: var(--ink); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 60%; background: var(--ink-tertiary); border-radius: 1px;"></div>
+              <div style="width: 6px; height: 100%; background: var(--ink); border-radius: 1px;"></div>
+            </div>
+            <div style="flex: 1; font-family: var(--font-mono); font-size: 7px; color: var(--ink-secondary); display: flex; flex-direction: column; gap: 2px;">
+              <div style="display: flex; justify-content: space-between;"><span>96,422.0</span><span>0.842</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>96,421.5</span><span>1.205</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>96,419.0</span><span>2.411</span></div>
+              <div style="display: flex; justify-content: space-between;"><span>96,418.5</span><span>0.319</span></div>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="padding-top: 6px; border-top: 1px solid var(--border-subtle); font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>SUB-MILLISECOND LATENCY</span>
+            <span>KEYBOARD-DRIVEN UI</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 4: Aether Spatial (VisionOS 空间变量) -->
+      <div class="shotwell-card stagger-item stagger-delay-6">
+        <div class="shotwell-artboard">
+          <div class="artboard-nav">
+            <span class="artboard-brand">AETHER.SPATIAL</span>
+            <span>VISIONOS 2.0 TOKENS</span>
+            <span>GLASSMORPHISM</span>
+          </div>
+          <div style="margin: auto 0; padding: 10px; background: var(--bg-card-subtle); border-radius: 6px;">
+            <div style="font-size: 10.5px; font-weight: 700; color: var(--ink); margin-bottom: 2px;">
+              Spatial Depth & Elevation System
+            </div>
+            <div style="font-family: var(--font-mono); font-size: 8px; color: var(--ink-secondary); display: flex; gap: 8px;">
+              <span>--z-elevation: 32dp</span>
+              <span>--frosted-blur: 24px</span>
+              <span>--specular: 0.85</span>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>GAZE + PINCH FEEDBACK</span>
+            <span>SWIFTUI & WEBGL PIPELINE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 5: Rows Particle Assembly Engine -->
+      <div class="shotwell-card stagger-item stagger-delay-7">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">ROWS.PHYSICS_ENGINE</span>
+            <span>520 PARTICLES</span>
+            <span>WEB AUDIO</span>
+          </div>
+          <div style="margin: auto 0; text-align: center;">
+            <div style="font-family: var(--font-mono); font-size: 8px; color: var(--accent); margin-bottom: 4px;">● DYNAMICS & SPRING SIMULATION</div>
+            <div style="font-size: 12px; font-weight: 700; color: var(--ink); letter-spacing: -0.02em;">Particle Assembly & Elastic Flight</div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>60 FPS HARDWARE ACCELERATED</span>
+            <span>OPEN SOURCE 2024</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 6: Atomic Tokens V3 -->
+      <div class="shotwell-card stagger-item stagger-delay-8">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">ATOMIC_TOKENS.V3</span>
+            <span>DESIGN TOKENS</span>
+            <span>CROSS-PLATFORM</span>
+          </div>
+          <div style="margin: auto 0; font-family: var(--font-mono); font-size: 8px; color: var(--ink-secondary); line-height: 1.6; background: var(--bg-card-subtle); padding: 8px 10px; border-radius: 6px;">
+            <div>$color-ink-primary: #0F1A30;</div>
+            <div>$space-unit: 8px; // 1x, 2x, 3x, 4x, 8x</div>
+            <div>$radius-pill: 9999px;</div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>WCAG AAA COMPLIANT</span>
+            <span>FIGMA TO CODE CI/CD</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 7: Qonto Next-Gen SaaS -->
+      <div class="shotwell-card stagger-item stagger-delay-9">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">QONTO_FINTECH.GRID</span>
+            <span>MILLION TRANSACTIONS</span>
+            <span>HIGH DENSITY</span>
+          </div>
+          <div style="margin: auto 0;">
+            <div style="display: flex; justify-content: space-between; font-size: 8px; font-family: var(--font-mono); color: var(--ink-secondary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px;">
+              <span>TX_ID</span><span>ENTITY</span><span>AMOUNT</span><span>STATUS</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 7.5px; font-family: var(--font-mono); color: var(--ink); padding-top: 4px;">
+              <span>#9082</span><span>Stripe Payout</span><span>+€14,250.00</span><span style="color: #10b981;">CLEARED</span>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>VIRTUALIZED TABLE SCROLLER</span>
+            <span>SMART STATE RECONCILE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 项目 8: Divido Checkout SDK -->
+      <div class="shotwell-card stagger-item stagger-delay-10">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">DIVIDO.CHECKOUT</span>
+            <span>0% APR INSTALLMENT</span>
+            <span>EMBEDDED SDK</span>
+          </div>
+          <div style="margin: auto 0; text-align: center;">
+            <div style="font-size: 9px; font-weight: 700; color: var(--ink); margin-bottom: 6px;">Pay in 3 Installments · 0% APR</div>
+            <div style="display: inline-flex; gap: 6px;">
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--border-medium); font-size: 7px; display:flex; align-items:center; justify-content:center;">1</div>
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--accent); color:#fff; font-size: 7px; display:flex; align-items:center; justify-content:center;">2</div>
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--border-medium); font-size: 7px; display:flex; align-items:center; justify-content:center;">3</div>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>FRICTIONLESS 3-STEP APPROVAL</span>
+            <span>+34% CONVERSION BOOST</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 底部返回区 -->
+    <footer class="projects-footer stagger-item stagger-delay-11" style="margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-tertiary); flex-wrap: wrap; gap: 16px;">
+      <a href="index.html" class="btn-back-home" id="btn-back-home-bottom" style="padding: 4px 12px; font-size: 12px;">
+        <span class="back-arrow">←</span>
+        <span>返回首页</span>
+      </a>
+      <span>17 · UI/UX 设计师 · 现居北京 (UTC+8)</span>
+    </footer>
+
+  </div>
+
+  <script>
+    // 页面加载完成，移除白场幕布并触发渐进式瀑布入场
+    const pageCurtain = document.getElementById("page-curtain");
+    window.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        if (pageCurtain) {
+          pageCurtain.classList.remove("is-active");
+        }
+        document.body.classList.add("is-loaded");
+      });
+    });
+
+    // 返回首页平滑过渡
+    function smoothNavigateBack(e, url) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      if (pageCurtain) {
+        pageCurtain.classList.add("is-active");
+      }
+      setTimeout(() => {
+        window.location.href = url;
+      }, 260);
+    }
+
+    document.getElementById("btn-back-home")?.addEventListener("click", (e) => smoothNavigateBack(e, "index.html"));
+    document.getElementById("btn-back-home-bottom")?.addEventListener("click", (e) => smoothNavigateBack(e, "index.html"));
+
+    // 点击项目卡片进入作品详情页
+    document.querySelectorAll(".shotwell-card").forEach(card => {
+      card.addEventListener("click", () => {
+        if (pageCurtain) {
+          pageCurtain.classList.add("is-active");
+        }
+        setTimeout(() => {
+          window.location.href = "project-detail.html";
+        }, 240);
+      });
+    });
+
+    // 主题切换
+    const themeBtn = document.getElementById("btn-theme-toggle");
+    if (themeBtn) {
+      themeBtn.addEventListener("click", () => {
+        const currentTheme = document.documentElement.getAttribute("data-theme");
+        const nextTheme = currentTheme === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", nextTheme);
+        localStorage.setItem("site-theme", nextTheme);
+      });
+    }
+
+    // 监听跨页面主题变更实时同步
+    window.addEventListener("storage", (e) => {
+      if (e.key === "site-theme" && e.newValue) {
+        document.documentElement.setAttribute("data-theme", e.newValue);
+      }
+    });
+  </script>
+</body>
+</html>

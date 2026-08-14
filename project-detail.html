@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>作品详情 — 17 UI/UX Designer Portfolio</title>
+  <meta name="description" content="17 的 UI/UX 作品详情展示。">
+  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* 作品详情页写死底色（您可根据放入的图片随时在此修改背景颜色 background-color） */
+    body.project-detail-body {
+      background-color: #FAFAFA;
+      color: #0F1A30;
+      min-height: 100vh;
+    }
+  </style>
+</head>
+<body class="project-detail-body">
+
+  <!-- 全屏白场平滑淡入淡出转场幕布 -->
+  <div class="page-transition-curtain is-active" id="page-curtain"></div>
+
+  <div class="detail-page-container">
+
+    <!-- 顶部导航栏 (已移除亮暗切换按钮，仅保留返回首页与标识) -->
+    <header class="projects-nav-header stagger-item stagger-delay-1" style="margin-bottom: 32px;">
+      <a href="index.html" class="btn-back-home" id="btn-back-home" title="返回首页">
+        <span class="back-arrow">←</span>
+        <span>返回首页</span>
+      </a>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-tertiary);">17.PORTFOLIO / UI·UX</span>
+      </div>
+    </header>
+
+    <!-- 作品大图占位区域 (上下排列，方便后续替换图片) -->
+    <main class="detail-images-stack">
+      
+      <!-- 图片占位 1 -->
+      <div class="detail-image-placeholder stagger-item stagger-delay-2" id="placeholder-1">
+        <!-- 用户可在此处直接放入 <img src="your-image-1.png" alt="Project Mockup 1"> -->
+      </div>
+
+      <!-- 图片占位 2 -->
+      <div class="detail-image-placeholder stagger-item stagger-delay-3" id="placeholder-2">
+        <!-- 用户可在此处直接放入 <img src="your-image-2.png" alt="Project Mockup 2"> -->
+      </div>
+
+      <!-- 图片占位 3 -->
+      <div class="detail-image-placeholder stagger-item stagger-delay-4" id="placeholder-3">
+        <!-- 用户可在此处直接放入 <img src="your-image-3.png" alt="Project Mockup 3"> -->
+      </div>
+
+    </main>
+
+    <!-- 底部返回栏 -->
+    <footer class="projects-footer stagger-item stagger-delay-5" style="margin-top: 56px; padding-top: 28px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: var(--ink-tertiary); flex-wrap: wrap; gap: 16px;">
+      <a href="index.html" class="btn-back-home" id="btn-back-bottom" style="padding: 4px 12px; font-size: 12px;">
+        <span class="back-arrow">←</span>
+        <span>返回首页</span>
+      </a>
+      <button class="footer-email-btn" id="btn-detail-copy-email" onclick="copyContactEmail('yanjq957@gmail.com', this)" title="点击复制邮箱" style="background: none; border: none; font-family: inherit; font-size: 12px; color: var(--ink-tertiary); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 4px 6px; border-radius: 4px; transition: color var(--duration-fast) ease;">
+        <span>复制邮箱(yanjq957@gmail.com)</span>
+      </button>
+    </footer>
+
+  </div>
+
+  <script>
+    // 页面加载完成，移除白场幕布并触发渐进式瀑布入场
+    const pageCurtain = document.getElementById("page-curtain");
+    window.addEventListener("DOMContentLoaded", () => {
+      requestAnimationFrame(() => {
+        if (pageCurtain) {
+          pageCurtain.classList.remove("is-active");
+        }
+        document.body.classList.add("is-loaded");
+      });
+    });
+
+    // 平滑返回首页过渡
+    function smoothNavigateBackHome(e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+      e.preventDefault();
+      if (pageCurtain) {
+        pageCurtain.classList.add("is-active");
+      }
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 240);
+    }
+
+    document.getElementById("btn-back-home")?.addEventListener("click", smoothNavigateBackHome);
+    document.getElementById("btn-back-bottom")?.addEventListener("click", smoothNavigateBackHome);
+
+    // 邮箱复制与 Toast 轻提示逻辑
+    let toastTimeout = null;
+    function showToast(message, email) {
+      let toast = document.getElementById("global-toast");
+      if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "global-toast";
+        toast.className = "global-toast";
+        document.body.appendChild(toast);
+      }
+      
+      const emailHtml = email ? `<span class="toast-email-val">(${email})</span>` : "";
+      toast.innerHTML = `
+        <span class="toast-icon">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </span>
+        <span class="toast-text">${message} ${emailHtml}</span>
+      `;
+      
+      toast.classList.remove("toast-hide");
+      toast.classList.add("toast-show");
+      
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove("toast-show");
+        toast.classList.add("toast-hide");
+        setTimeout(() => {
+          if (toast && toast.classList.contains("toast-hide")) {
+            toast.remove();
+          }
+        }, 260);
+      }, 2400);
+    }
+
+    function copyContactEmail(email, btnEl) {
+      const emailText = email || "yanjq957@gmail.com";
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(emailText).catch(() => fallbackCopy(emailText));
+      } else {
+        fallbackCopy(emailText);
+      }
+
+      showToast("已成功复制 17 的联系邮箱", emailText);
+
+      if (btnEl) {
+        const originalContent = btnEl.innerHTML;
+        btnEl.innerHTML = `
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color: #22c55e;">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span style="color: #22c55e;">已复制成功</span>
+        `;
+        setTimeout(() => {
+          btnEl.innerHTML = originalContent;
+        }, 2000);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position = "fixed";
+      textArea.style.opacity = "0";
+      textArea.style.left = "-9999px";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand("copy");
+      } catch (err) {
+        console.error("Fallback copy failed", err);
+      }
+      document.body.removeChild(textArea);
+    }
+  </script>
+</body>
+</html>

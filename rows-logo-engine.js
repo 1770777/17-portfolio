@@ -9,7 +9,7 @@
   // ==========================================
   // 1. 纯净「17 + 橙点」高密物理质点数据 (519 质点)
   // ==========================================
-  const GLYPH_17_POINTS = [[3,0,255,87,34,"orange"],[10,0,15,26,48,"main"],[11,0,15,26,48,"main"],[12,0,15,26,48,"main"],[13,0,15,26,48,"main"],[14,0,15,26,48,"main"],[1,1,255,87,34,"orange"],[2,1,255,87,34,"orange"],[3,1,255,87,34,"orange"],[4,1,255,87,34,"orange"],[5,1,255,87,34,"orange"],[10,1,15,26,48,"main"],[11,1,15,26,48,"main"],[12,1,15,26,48,"main"],[13,1,15,26,48,"main"],[14,1,15,26,48,"main"],[19,1,15,26,48,"main"],[20,1,15,26,48,"main"],[21,1,15,26,48,"main"],[22,1,15,26,48,"main"],[23,1,15,26,48,"main"],[24,1,15,26,48,"main"],[25,1,15,26,48,"main"],[26,1,15,26,48,"main"],[27,1,15,26,48,"main"],[28,1,15,26,48,"main"],[29,1,15,26,48,"main"],[30,1,15,26,48,"main"],[1,2,255,87,34,"orange"],[2,2,255,87,34,"orange"],[3,2,255,87,34,"orange"],[4,2,255,87,34,"orange"],[5,2,255,87,34,"orange"],[10,2,15,26,48,"main"],[11,2,15,26,48,"main"],[12,2,15,26,48,"main"],[13,2,15,26,48,"main"],[14,2,15,26,48,"main"],[19,2,15,26,48,"main"],[20,2,15,26,48,"main"],[21,2,15,26,48,"main"],[22,2,15,26,48,"main"],[23,2,15,26,48,"main"],[24,2,15,26,48,"main"],[25,2,15,26,48,"main"],[26,2,15,26,48,"main"],[27,2,15,26,48,"main"],[28,2,15,26,48,"main"],[29,2,15,26,48,"main"],[30,2,15,26,48,"main"],[31,2,15,26,48,"main"],[32,2,15,26,48,"main"],[0,3,255,87,34,"orange"],[1,3,255,87,34,"orange"],[2,3,255,87,34,"orange"],[3,3,255,87,34,"orange"],[4,3,255,87,34,"orange"],[5,3,255,87,34,"orange"],[6,3,255,87,34,"orange"],[10,3,15,26,48,"main"],[11,3,15,26,48,"main"],[12,3,15,26,48,"main"],[13,3,15,26,48,"main"],[14,3,15,26,48,"main"],[19,3,15,26,48,"main"],[20,3,15,26,48,"main"],[21,3,15,26,48,"main"],[22,3,15,26,48,"main"],[23,3,15,26,48,"main"],[24,3,15,26,48,"main"],[25,3,15,26,48,"main"],[26,3,15,26,48,"main"],[27,3,15,26,48,"main"],[28,3,15,26,48,"main"],[29,3,15,26,48,"main"],[30,3,15,26,48,"main"],[31,3,15,26,48,"main"],[32,3,15,26,48,"main"],[33,3,15,26,48,"main"],[0,4,255,87,34,"orange"],[1,4,255,87,34,"orange"],[2,4,255,87,34,"orange"],[3,4,255,87,34,"orange"],[4,4,255,87,34,"orange"],[5,4,255,87,34,"orange"],[6,4,255,87,34,"orange"],[10,4,15,26,48,"main"],[11,4,15,26,48,"main"],[12,4,15,26,48,"main"],[13,4,15,26,48,"main"],[14,4,15,26,48,"main"],[19,4,15,26,48,"main"],[20,4,15,26,48,"main"],[21,4,15,26,48,"main"],[22,4,15,26,48,"main"],[23,4,15,26,48,"main"],[24,4,15,26,48,"main"],[25,4,15,26,48,"main"],[26,4,15,26,48,"main"],[27,4,15,26,48,"main"],[28,4,15,26,48,"main"],[29,4,15,26,48,"main"],[30,4,15,26,48,"main"],[31,4,15,26,48,"main"],[32,4,15,26,48,"main"],[33,4,15,26,48,"main"],[34,4,15,26,48,"main"],[1,5,255,87,34,"orange"],[2,5,255,87,34,"orange"],[3,5,255,87,34,"orange"],[4,5,255,87,34,"orange"],[5,5,255,87,34,"orange"],[10,5,15,26,48,"main"],[11,5,15,26,48,"main"],[12,5,15,26,48,"main"],[13,5,15,26,48,"main"],[14,5,15,26,48,"main"],[19,5,15,26,48,"main"],[20,5,15,26,48,"main"],[21,5,15,26,48,"main"],[22,5,15,26,48,"main"],[23,5,15,26,48,"main"],[24,5,15,26,48,"main"],[25,5,15,26,48,"main"],[26,5,15,26,48,"main"],[27,5,15,26,48,"main"],[28,5,15,26,48,"main"],[29,5,15,26,48,"main"],[30,5,15,26,48,"main"],[31,5,15,26,48,"main"],[32,5,15,26,48,"main"],[33,5,15,26,48,"main"],[34,5,15,26,48,"main"],[35,5,15,26,48,"main"],[1,6,255,87,34,"orange"],[2,6,255,87,34,"orange"],[3,6,255,87,34,"orange"],[4,6,255,87,34,"orange"],[5,6,255,87,34,"orange"],[10,6,15,26,48,"main"],[11,6,15,26,48,"main"],[12,6,15,26,48,"main"],[13,6,15,26,48,"main"],[14,6,15,26,48,"main"],[19,6,15,26,48,"main"],[20,6,15,26,48,"main"],[21,6,15,26,48,"main"],[22,6,15,26,48,"main"],[23,6,15,26,48,"main"],[24,6,15,26,48,"main"],[25,6,15,26,48,"main"],[26,6,15,26,48,"main"],[27,6,15,26,48,"main"],[28,6,15,26,48,"main"],[29,6,15,26,48,"main"],[30,6,15,26,48,"main"],[31,6,15,26,48,"main"],[32,6,15,26,48,"main"],[33,6,15,26,48,"main"],[34,6,15,26,48,"main"],[35,6,15,26,48,"main"],[36,6,15,26,48,"main"],[3,7,255,87,34,"orange"],[10,7,15,26,48,"main"],[11,7,15,26,48,"main"],[12,7,15,26,48,"main"],[13,7,15,26,48,"main"],[14,7,15,26,48,"main"],[30,7,15,26,48,"main"],[31,7,15,26,48,"main"],[32,7,15,26,48,"main"],[33,7,15,26,48,"main"],[34,7,15,26,48,"main"],[35,7,15,26,48,"main"],[36,7,15,26,48,"main"],[10,8,15,26,48,"main"],[11,8,15,26,48,"main"],[12,8,15,26,48,"main"],[13,8,15,26,48,"main"],[14,8,15,26,48,"main"],[31,8,15,26,48,"main"],[32,8,15,26,48,"main"],[33,8,15,26,48,"main"],[34,8,15,26,48,"main"],[35,8,15,26,48,"main"],[36,8,15,26,48,"main"],[37,8,15,26,48,"main"],[10,9,15,26,48,"main"],[11,9,15,26,48,"main"],[12,9,15,26,48,"main"],[13,9,15,26,48,"main"],[14,9,15,26,48,"main"],[32,9,15,26,48,"main"],[33,9,15,26,48,"main"],[34,9,15,26,48,"main"],[35,9,15,26,48,"main"],[36,9,15,26,48,"main"],[37,9,15,26,48,"main"],[10,10,15,26,48,"main"],[11,10,15,26,48,"main"],[12,10,15,26,48,"main"],[13,10,15,26,48,"main"],[14,10,15,26,48,"main"],[32,10,15,26,48,"main"],[33,10,15,26,48,"main"],[34,10,15,26,48,"main"],[35,10,15,26,48,"main"],[36,10,15,26,48,"main"],[37,10,15,26,48,"main"],[10,11,15,26,48,"main"],[11,11,15,26,48,"main"],[12,11,15,26,48,"main"],[13,11,15,26,48,"main"],[14,11,15,26,48,"main"],[33,11,15,26,48,"main"],[34,11,15,26,48,"main"],[35,11,15,26,48,"main"],[36,11,15,26,48,"main"],[37,11,15,26,48,"main"],[10,12,15,26,48,"main"],[11,12,15,26,48,"main"],[12,12,15,26,48,"main"],[13,12,15,26,48,"main"],[14,12,15,26,48,"main"],[33,12,15,26,48,"main"],[34,12,15,26,48,"main"],[35,12,15,26,48,"main"],[36,12,15,26,48,"main"],[37,12,15,26,48,"main"],[10,13,15,26,48,"main"],[11,13,15,26,48,"main"],[12,13,15,26,48,"main"],[13,13,15,26,48,"main"],[14,13,15,26,48,"main"],[33,13,15,26,48,"main"],[34,13,15,26,48,"main"],[35,13,15,26,48,"main"],[36,13,15,26,48,"main"],[37,13,15,26,48,"main"],[10,14,15,26,48,"main"],[11,14,15,26,48,"main"],[12,14,15,26,48,"main"],[13,14,15,26,48,"main"],[14,14,15,26,48,"main"],[33,14,15,26,48,"main"],[34,14,15,26,48,"main"],[35,14,15,26,48,"main"],[36,14,15,26,48,"main"],[37,14,15,26,48,"main"],[10,15,15,26,48,"main"],[11,15,15,26,48,"main"],[12,15,15,26,48,"main"],[13,15,15,26,48,"main"],[14,15,15,26,48,"main"],[33,15,15,26,48,"main"],[34,15,15,26,48,"main"],[35,15,15,26,48,"main"],[36,15,15,26,48,"main"],[37,15,15,26,48,"main"],[10,16,15,26,48,"main"],[11,16,15,26,48,"main"],[12,16,15,26,48,"main"],[13,16,15,26,48,"main"],[14,16,15,26,48,"main"],[33,16,15,26,48,"main"],[34,16,15,26,48,"main"],[35,16,15,26,48,"main"],[36,16,15,26,48,"main"],[37,16,15,26,48,"main"],[10,17,15,26,48,"main"],[11,17,15,26,48,"main"],[12,17,15,26,48,"main"],[13,17,15,26,48,"main"],[14,17,15,26,48,"main"],[33,17,15,26,48,"main"],[34,17,15,26,48,"main"],[35,17,15,26,48,"main"],[36,17,15,26,48,"main"],[37,17,15,26,48,"main"],[10,18,15,26,48,"main"],[11,18,15,26,48,"main"],[12,18,15,26,48,"main"],[13,18,15,26,48,"main"],[14,18,15,26,48,"main"],[33,18,15,26,48,"main"],[34,18,15,26,48,"main"],[35,18,15,26,48,"main"],[36,18,15,26,48,"main"],[37,18,15,26,48,"main"],[10,19,15,26,48,"main"],[11,19,15,26,48,"main"],[12,19,15,26,48,"main"],[13,19,15,26,48,"main"],[14,19,15,26,48,"main"],[33,19,15,26,48,"main"],[34,19,15,26,48,"main"],[35,19,15,26,48,"main"],[36,19,15,26,48,"main"],[37,19,15,26,48,"main"],[10,20,15,26,48,"main"],[11,20,15,26,48,"main"],[12,20,15,26,48,"main"],[13,20,15,26,48,"main"],[14,20,15,26,48,"main"],[33,20,15,26,48,"main"],[34,20,15,26,48,"main"],[35,20,15,26,48,"main"],[36,20,15,26,48,"main"],[37,20,15,26,48,"main"],[10,21,15,26,48,"main"],[11,21,15,26,48,"main"],[12,21,15,26,48,"main"],[13,21,15,26,48,"main"],[14,21,15,26,48,"main"],[33,21,15,26,48,"main"],[34,21,15,26,48,"main"],[35,21,15,26,48,"main"],[36,21,15,26,48,"main"],[37,21,15,26,48,"main"],[10,22,15,26,48,"main"],[11,22,15,26,48,"main"],[12,22,15,26,48,"main"],[13,22,15,26,48,"main"],[14,22,15,26,48,"main"],[33,22,15,26,48,"main"],[34,22,15,26,48,"main"],[35,22,15,26,48,"main"],[36,22,15,26,48,"main"],[37,22,15,26,48,"main"],[10,23,15,26,48,"main"],[11,23,15,26,48,"main"],[12,23,15,26,48,"main"],[13,23,15,26,48,"main"],[14,23,15,26,48,"main"],[33,23,15,26,48,"main"],[34,23,15,26,48,"main"],[35,23,15,26,48,"main"],[36,23,15,26,48,"main"],[37,23,15,26,48,"main"],[10,24,15,26,48,"main"],[11,24,15,26,48,"main"],[12,24,15,26,48,"main"],[13,24,15,26,48,"main"],[14,24,15,26,48,"main"],[33,24,15,26,48,"main"],[34,24,15,26,48,"main"],[35,24,15,26,48,"main"],[36,24,15,26,48,"main"],[37,24,15,26,48,"main"],[10,25,15,26,48,"main"],[11,25,15,26,48,"main"],[12,25,15,26,48,"main"],[13,25,15,26,48,"main"],[14,25,15,26,48,"main"],[33,25,15,26,48,"main"],[34,25,15,26,48,"main"],[35,25,15,26,48,"main"],[36,25,15,26,48,"main"],[37,25,15,26,48,"main"],[10,26,15,26,48,"main"],[11,26,15,26,48,"main"],[12,26,15,26,48,"main"],[13,26,15,26,48,"main"],[14,26,15,26,48,"main"],[33,26,15,26,48,"main"],[34,26,15,26,48,"main"],[35,26,15,26,48,"main"],[36,26,15,26,48,"main"],[37,26,15,26,48,"main"],[10,27,15,26,48,"main"],[11,27,15,26,48,"main"],[12,27,15,26,48,"main"],[13,27,15,26,48,"main"],[14,27,15,26,48,"main"],[33,27,15,26,48,"main"],[34,27,15,26,48,"main"],[35,27,15,26,48,"main"],[36,27,15,26,48,"main"],[37,27,15,26,48,"main"],[10,28,15,26,48,"main"],[11,28,15,26,48,"main"],[12,28,15,26,48,"main"],[13,28,15,26,48,"main"],[14,28,15,26,48,"main"],[33,28,15,26,48,"main"],[34,28,15,26,48,"main"],[35,28,15,26,48,"main"],[36,28,15,26,48,"main"],[37,28,15,26,48,"main"],[10,29,15,26,48,"main"],[11,29,15,26,48,"main"],[12,29,15,26,48,"main"],[13,29,15,26,48,"main"],[14,29,15,26,48,"main"],[33,29,15,26,48,"main"],[34,29,15,26,48,"main"],[35,29,15,26,48,"main"],[36,29,15,26,48,"main"],[37,29,15,26,48,"main"],[10,30,15,26,48,"main"],[11,30,15,26,48,"main"],[12,30,15,26,48,"main"],[13,30,15,26,48,"main"],[14,30,15,26,48,"main"],[33,30,15,26,48,"main"],[34,30,15,26,48,"main"],[35,30,15,26,48,"main"],[36,30,15,26,48,"main"],[37,30,15,26,48,"main"],[10,31,15,26,48,"main"],[11,31,15,26,48,"main"],[12,31,15,26,48,"main"],[13,31,15,26,48,"main"],[14,31,15,26,48,"main"],[33,31,15,26,48,"main"],[34,31,15,26,48,"main"],[35,31,15,26,48,"main"],[36,31,15,26,48,"main"],[37,31,15,26,48,"main"],[10,32,15,26,48,"main"],[11,32,15,26,48,"main"],[12,32,15,26,48,"main"],[13,32,15,26,48,"main"],[14,32,15,26,48,"main"],[33,32,15,26,48,"main"],[34,32,15,26,48,"main"],[35,32,15,26,48,"main"],[36,32,15,26,48,"main"],[37,32,15,26,48,"main"],[10,33,15,26,48,"main"],[11,33,15,26,48,"main"],[12,33,15,26,48,"main"],[13,33,15,26,48,"main"],[14,33,15,26,48,"main"],[33,33,15,26,48,"main"],[34,33,15,26,48,"main"],[35,33,15,26,48,"main"],[36,33,15,26,48,"main"],[37,33,15,26,48,"main"],[10,34,15,26,48,"main"],[11,34,15,26,48,"main"],[12,34,15,26,48,"main"],[13,34,15,26,48,"main"],[14,34,15,26,48,"main"],[33,34,15,26,48,"main"],[34,34,15,26,48,"main"],[35,34,15,26,48,"main"],[36,34,15,26,48,"main"],[37,34,15,26,48,"main"],[10,35,15,26,48,"main"],[11,35,15,26,48,"main"],[12,35,15,26,48,"main"],[13,35,15,26,48,"main"],[14,35,15,26,48,"main"],[33,35,15,26,48,"main"],[34,35,15,26,48,"main"],[35,35,15,26,48,"main"],[36,35,15,26,48,"main"],[37,35,15,26,48,"main"],[10,36,15,26,48,"main"],[11,36,15,26,48,"main"],[12,36,15,26,48,"main"],[13,36,15,26,48,"main"],[14,36,15,26,48,"main"],[33,36,15,26,48,"main"],[34,36,15,26,48,"main"],[35,36,15,26,48,"main"],[36,36,15,26,48,"main"],[37,36,15,26,48,"main"],[10,37,15,26,48,"main"],[11,37,15,26,48,"main"],[12,37,15,26,48,"main"],[13,37,15,26,48,"main"],[14,37,15,26,48,"main"],[33,37,15,26,48,"main"],[34,37,15,26,48,"main"],[35,37,15,26,48,"main"],[36,37,15,26,48,"main"],[37,37,15,26,48,"main"],[10,38,15,26,48,"main"],[11,38,15,26,48,"main"],[12,38,15,26,48,"main"],[13,38,15,26,48,"main"],[14,38,15,26,48,"main"],[33,38,15,26,48,"main"],[34,38,15,26,48,"main"],[35,38,15,26,48,"main"],[36,38,15,26,48,"main"],[37,38,15,26,48,"main"],[10,39,15,26,48,"main"],[11,39,15,26,48,"main"],[12,39,15,26,48,"main"],[13,39,15,26,48,"main"],[14,39,15,26,48,"main"],[33,39,15,26,48,"main"],[34,39,15,26,48,"main"],[35,39,15,26,48,"main"],[36,39,15,26,48,"main"],[37,39,15,26,48,"main"],[10,40,15,26,48,"main"],[11,40,15,26,48,"main"],[12,40,15,26,48,"main"],[13,40,15,26,48,"main"],[14,40,15,26,48,"main"],[33,40,15,26,48,"main"],[34,40,15,26,48,"main"],[35,40,15,26,48,"main"],[36,40,15,26,48,"main"],[37,40,15,26,48,"main"],[10,41,15,26,48,"main"],[11,41,15,26,48,"main"],[12,41,15,26,48,"main"],[13,41,15,26,48,"main"],[14,41,15,26,48,"main"],[33,41,15,26,48,"main"],[34,41,15,26,48,"main"],[35,41,15,26,48,"main"],[36,41,15,26,48,"main"],[37,41,15,26,48,"main"]];
+  const GLYPH_17_POINTS = [[2,0,255,87,34,"orange"],[3,0,255,87,34,"orange"],[4,0,255,87,34,"orange"],[10,0,15,26,48,"main"],[11,0,15,26,48,"main"],[12,0,15,26,48,"main"],[13,0,15,26,48,"main"],[14,0,15,26,48,"main"],[1,1,255,87,34,"orange"],[2,1,255,87,34,"orange"],[3,1,255,87,34,"orange"],[4,1,255,87,34,"orange"],[5,1,255,87,34,"orange"],[10,1,15,26,48,"main"],[11,1,15,26,48,"main"],[12,1,15,26,48,"main"],[13,1,15,26,48,"main"],[14,1,15,26,48,"main"],[19,1,15,26,48,"main"],[20,1,15,26,48,"main"],[21,1,15,26,48,"main"],[22,1,15,26,48,"main"],[23,1,15,26,48,"main"],[24,1,15,26,48,"main"],[25,1,15,26,48,"main"],[26,1,15,26,48,"main"],[27,1,15,26,48,"main"],[28,1,15,26,48,"main"],[29,1,15,26,48,"main"],[30,1,15,26,48,"main"],[0,2,255,87,34,"orange"],[1,2,255,87,34,"orange"],[2,2,255,87,34,"orange"],[3,2,255,87,34,"orange"],[4,2,255,87,34,"orange"],[5,2,255,87,34,"orange"],[6,2,255,87,34,"orange"],[10,2,15,26,48,"main"],[11,2,15,26,48,"main"],[12,2,15,26,48,"main"],[13,2,15,26,48,"main"],[14,2,15,26,48,"main"],[19,2,15,26,48,"main"],[20,2,15,26,48,"main"],[21,2,15,26,48,"main"],[22,2,15,26,48,"main"],[23,2,15,26,48,"main"],[24,2,15,26,48,"main"],[25,2,15,26,48,"main"],[26,2,15,26,48,"main"],[27,2,15,26,48,"main"],[28,2,15,26,48,"main"],[29,2,15,26,48,"main"],[30,2,15,26,48,"main"],[31,2,15,26,48,"main"],[32,2,15,26,48,"main"],[0,3,255,87,34,"orange"],[1,3,255,87,34,"orange"],[2,3,255,87,34,"orange"],[3,3,255,87,34,"orange"],[4,3,255,87,34,"orange"],[5,3,255,87,34,"orange"],[6,3,255,87,34,"orange"],[10,3,15,26,48,"main"],[11,3,15,26,48,"main"],[12,3,15,26,48,"main"],[13,3,15,26,48,"main"],[14,3,15,26,48,"main"],[19,3,15,26,48,"main"],[20,3,15,26,48,"main"],[21,3,15,26,48,"main"],[22,3,15,26,48,"main"],[23,3,15,26,48,"main"],[24,3,15,26,48,"main"],[25,3,15,26,48,"main"],[26,3,15,26,48,"main"],[27,3,15,26,48,"main"],[28,3,15,26,48,"main"],[29,3,15,26,48,"main"],[30,3,15,26,48,"main"],[31,3,15,26,48,"main"],[32,3,15,26,48,"main"],[33,3,15,26,48,"main"],[0,4,255,87,34,"orange"],[1,4,255,87,34,"orange"],[2,4,255,87,34,"orange"],[3,4,255,87,34,"orange"],[4,4,255,87,34,"orange"],[5,4,255,87,34,"orange"],[6,4,255,87,34,"orange"],[10,4,15,26,48,"main"],[11,4,15,26,48,"main"],[12,4,15,26,48,"main"],[13,4,15,26,48,"main"],[14,4,15,26,48,"main"],[19,4,15,26,48,"main"],[20,4,15,26,48,"main"],[21,4,15,26,48,"main"],[22,4,15,26,48,"main"],[23,4,15,26,48,"main"],[24,4,15,26,48,"main"],[25,4,15,26,48,"main"],[26,4,15,26,48,"main"],[27,4,15,26,48,"main"],[28,4,15,26,48,"main"],[29,4,15,26,48,"main"],[30,4,15,26,48,"main"],[31,4,15,26,48,"main"],[32,4,15,26,48,"main"],[33,4,15,26,48,"main"],[34,4,15,26,48,"main"],[1,5,255,87,34,"orange"],[2,5,255,87,34,"orange"],[3,5,255,87,34,"orange"],[4,5,255,87,34,"orange"],[5,5,255,87,34,"orange"],[10,5,15,26,48,"main"],[11,5,15,26,48,"main"],[12,5,15,26,48,"main"],[13,5,15,26,48,"main"],[14,5,15,26,48,"main"],[19,5,15,26,48,"main"],[20,5,15,26,48,"main"],[21,5,15,26,48,"main"],[22,5,15,26,48,"main"],[23,5,15,26,48,"main"],[24,5,15,26,48,"main"],[25,5,15,26,48,"main"],[26,5,15,26,48,"main"],[27,5,15,26,48,"main"],[28,5,15,26,48,"main"],[29,5,15,26,48,"main"],[30,5,15,26,48,"main"],[31,5,15,26,48,"main"],[32,5,15,26,48,"main"],[33,5,15,26,48,"main"],[34,5,15,26,48,"main"],[35,5,15,26,48,"main"],[2,6,255,87,34,"orange"],[3,6,255,87,34,"orange"],[4,6,255,87,34,"orange"],[10,6,15,26,48,"main"],[11,6,15,26,48,"main"],[12,6,15,26,48,"main"],[13,6,15,26,48,"main"],[14,6,15,26,48,"main"],[19,6,15,26,48,"main"],[20,6,15,26,48,"main"],[21,6,15,26,48,"main"],[22,6,15,26,48,"main"],[23,6,15,26,48,"main"],[24,6,15,26,48,"main"],[25,6,15,26,48,"main"],[26,6,15,26,48,"main"],[27,6,15,26,48,"main"],[28,6,15,26,48,"main"],[29,6,15,26,48,"main"],[30,6,15,26,48,"main"],[31,6,15,26,48,"main"],[32,6,15,26,48,"main"],[33,6,15,26,48,"main"],[34,6,15,26,48,"main"],[35,6,15,26,48,"main"],[36,6,15,26,48,"main"],[10,7,15,26,48,"main"],[11,7,15,26,48,"main"],[12,7,15,26,48,"main"],[13,7,15,26,48,"main"],[14,7,15,26,48,"main"],[30,7,15,26,48,"main"],[31,7,15,26,48,"main"],[32,7,15,26,48,"main"],[33,7,15,26,48,"main"],[34,7,15,26,48,"main"],[35,7,15,26,48,"main"],[36,7,15,26,48,"main"],[10,8,15,26,48,"main"],[11,8,15,26,48,"main"],[12,8,15,26,48,"main"],[13,8,15,26,48,"main"],[14,8,15,26,48,"main"],[31,8,15,26,48,"main"],[32,8,15,26,48,"main"],[33,8,15,26,48,"main"],[34,8,15,26,48,"main"],[35,8,15,26,48,"main"],[36,8,15,26,48,"main"],[37,8,15,26,48,"main"],[10,9,15,26,48,"main"],[11,9,15,26,48,"main"],[12,9,15,26,48,"main"],[13,9,15,26,48,"main"],[14,9,15,26,48,"main"],[32,9,15,26,48,"main"],[33,9,15,26,48,"main"],[34,9,15,26,48,"main"],[35,9,15,26,48,"main"],[36,9,15,26,48,"main"],[37,9,15,26,48,"main"],[10,10,15,26,48,"main"],[11,10,15,26,48,"main"],[12,10,15,26,48,"main"],[13,10,15,26,48,"main"],[14,10,15,26,48,"main"],[32,10,15,26,48,"main"],[33,10,15,26,48,"main"],[34,10,15,26,48,"main"],[35,10,15,26,48,"main"],[36,10,15,26,48,"main"],[37,10,15,26,48,"main"],[10,11,15,26,48,"main"],[11,11,15,26,48,"main"],[12,11,15,26,48,"main"],[13,11,15,26,48,"main"],[14,11,15,26,48,"main"],[33,11,15,26,48,"main"],[34,11,15,26,48,"main"],[35,11,15,26,48,"main"],[36,11,15,26,48,"main"],[37,11,15,26,48,"main"],[10,12,15,26,48,"main"],[11,12,15,26,48,"main"],[12,12,15,26,48,"main"],[13,12,15,26,48,"main"],[14,12,15,26,48,"main"],[33,12,15,26,48,"main"],[34,12,15,26,48,"main"],[35,12,15,26,48,"main"],[36,12,15,26,48,"main"],[37,12,15,26,48,"main"],[10,13,15,26,48,"main"],[11,13,15,26,48,"main"],[12,13,15,26,48,"main"],[13,13,15,26,48,"main"],[14,13,15,26,48,"main"],[33,13,15,26,48,"main"],[34,13,15,26,48,"main"],[35,13,15,26,48,"main"],[36,13,15,26,48,"main"],[37,13,15,26,48,"main"],[10,14,15,26,48,"main"],[11,14,15,26,48,"main"],[12,14,15,26,48,"main"],[13,14,15,26,48,"main"],[14,14,15,26,48,"main"],[33,14,15,26,48,"main"],[34,14,15,26,48,"main"],[35,14,15,26,48,"main"],[36,14,15,26,48,"main"],[37,14,15,26,48,"main"],[10,15,15,26,48,"main"],[11,15,15,26,48,"main"],[12,15,15,26,48,"main"],[13,15,15,26,48,"main"],[14,15,15,26,48,"main"],[33,15,15,26,48,"main"],[34,15,15,26,48,"main"],[35,15,15,26,48,"main"],[36,15,15,26,48,"main"],[37,15,15,26,48,"main"],[10,16,15,26,48,"main"],[11,16,15,26,48,"main"],[12,16,15,26,48,"main"],[13,16,15,26,48,"main"],[14,16,15,26,48,"main"],[33,16,15,26,48,"main"],[34,16,15,26,48,"main"],[35,16,15,26,48,"main"],[36,16,15,26,48,"main"],[37,16,15,26,48,"main"],[10,17,15,26,48,"main"],[11,17,15,26,48,"main"],[12,17,15,26,48,"main"],[13,17,15,26,48,"main"],[14,17,15,26,48,"main"],[33,17,15,26,48,"main"],[34,17,15,26,48,"main"],[35,17,15,26,48,"main"],[36,17,15,26,48,"main"],[37,17,15,26,48,"main"],[10,18,15,26,48,"main"],[11,18,15,26,48,"main"],[12,18,15,26,48,"main"],[13,18,15,26,48,"main"],[14,18,15,26,48,"main"],[33,18,15,26,48,"main"],[34,18,15,26,48,"main"],[35,18,15,26,48,"main"],[36,18,15,26,48,"main"],[37,18,15,26,48,"main"],[10,19,15,26,48,"main"],[11,19,15,26,48,"main"],[12,19,15,26,48,"main"],[13,19,15,26,48,"main"],[14,19,15,26,48,"main"],[33,19,15,26,48,"main"],[34,19,15,26,48,"main"],[35,19,15,26,48,"main"],[36,19,15,26,48,"main"],[37,19,15,26,48,"main"],[10,20,15,26,48,"main"],[11,20,15,26,48,"main"],[12,20,15,26,48,"main"],[13,20,15,26,48,"main"],[14,20,15,26,48,"main"],[33,20,15,26,48,"main"],[34,20,15,26,48,"main"],[35,20,15,26,48,"main"],[36,20,15,26,48,"main"],[37,20,15,26,48,"main"],[10,21,15,26,48,"main"],[11,21,15,26,48,"main"],[12,21,15,26,48,"main"],[13,21,15,26,48,"main"],[14,21,15,26,48,"main"],[33,21,15,26,48,"main"],[34,21,15,26,48,"main"],[35,21,15,26,48,"main"],[36,21,15,26,48,"main"],[37,21,15,26,48,"main"],[10,22,15,26,48,"main"],[11,22,15,26,48,"main"],[12,22,15,26,48,"main"],[13,22,15,26,48,"main"],[14,22,15,26,48,"main"],[33,22,15,26,48,"main"],[34,22,15,26,48,"main"],[35,22,15,26,48,"main"],[36,22,15,26,48,"main"],[37,22,15,26,48,"main"],[10,23,15,26,48,"main"],[11,23,15,26,48,"main"],[12,23,15,26,48,"main"],[13,23,15,26,48,"main"],[14,23,15,26,48,"main"],[33,23,15,26,48,"main"],[34,23,15,26,48,"main"],[35,23,15,26,48,"main"],[36,23,15,26,48,"main"],[37,23,15,26,48,"main"],[10,24,15,26,48,"main"],[11,24,15,26,48,"main"],[12,24,15,26,48,"main"],[13,24,15,26,48,"main"],[14,24,15,26,48,"main"],[33,24,15,26,48,"main"],[34,24,15,26,48,"main"],[35,24,15,26,48,"main"],[36,24,15,26,48,"main"],[37,24,15,26,48,"main"],[10,25,15,26,48,"main"],[11,25,15,26,48,"main"],[12,25,15,26,48,"main"],[13,25,15,26,48,"main"],[14,25,15,26,48,"main"],[33,25,15,26,48,"main"],[34,25,15,26,48,"main"],[35,25,15,26,48,"main"],[36,25,15,26,48,"main"],[37,25,15,26,48,"main"],[10,26,15,26,48,"main"],[11,26,15,26,48,"main"],[12,26,15,26,48,"main"],[13,26,15,26,48,"main"],[14,26,15,26,48,"main"],[33,26,15,26,48,"main"],[34,26,15,26,48,"main"],[35,26,15,26,48,"main"],[36,26,15,26,48,"main"],[37,26,15,26,48,"main"],[10,27,15,26,48,"main"],[11,27,15,26,48,"main"],[12,27,15,26,48,"main"],[13,27,15,26,48,"main"],[14,27,15,26,48,"main"],[33,27,15,26,48,"main"],[34,27,15,26,48,"main"],[35,27,15,26,48,"main"],[36,27,15,26,48,"main"],[37,27,15,26,48,"main"],[10,28,15,26,48,"main"],[11,28,15,26,48,"main"],[12,28,15,26,48,"main"],[13,28,15,26,48,"main"],[14,28,15,26,48,"main"],[33,28,15,26,48,"main"],[34,28,15,26,48,"main"],[35,28,15,26,48,"main"],[36,28,15,26,48,"main"],[37,28,15,26,48,"main"],[10,29,15,26,48,"main"],[11,29,15,26,48,"main"],[12,29,15,26,48,"main"],[13,29,15,26,48,"main"],[14,29,15,26,48,"main"],[33,29,15,26,48,"main"],[34,29,15,26,48,"main"],[35,29,15,26,48,"main"],[36,29,15,26,48,"main"],[37,29,15,26,48,"main"],[10,30,15,26,48,"main"],[11,30,15,26,48,"main"],[12,30,15,26,48,"main"],[13,30,15,26,48,"main"],[14,30,15,26,48,"main"],[33,30,15,26,48,"main"],[34,30,15,26,48,"main"],[35,30,15,26,48,"main"],[36,30,15,26,48,"main"],[37,30,15,26,48,"main"],[10,31,15,26,48,"main"],[11,31,15,26,48,"main"],[12,31,15,26,48,"main"],[13,31,15,26,48,"main"],[14,31,15,26,48,"main"],[33,31,15,26,48,"main"],[34,31,15,26,48,"main"],[35,31,15,26,48,"main"],[36,31,15,26,48,"main"],[37,31,15,26,48,"main"],[10,32,15,26,48,"main"],[11,32,15,26,48,"main"],[12,32,15,26,48,"main"],[13,32,15,26,48,"main"],[14,32,15,26,48,"main"],[33,32,15,26,48,"main"],[34,32,15,26,48,"main"],[35,32,15,26,48,"main"],[36,32,15,26,48,"main"],[37,32,15,26,48,"main"],[10,33,15,26,48,"main"],[11,33,15,26,48,"main"],[12,33,15,26,48,"main"],[13,33,15,26,48,"main"],[14,33,15,26,48,"main"],[33,33,15,26,48,"main"],[34,33,15,26,48,"main"],[35,33,15,26,48,"main"],[36,33,15,26,48,"main"],[37,33,15,26,48,"main"],[10,34,15,26,48,"main"],[11,34,15,26,48,"main"],[12,34,15,26,48,"main"],[13,34,15,26,48,"main"],[14,34,15,26,48,"main"],[33,34,15,26,48,"main"],[34,34,15,26,48,"main"],[35,34,15,26,48,"main"],[36,34,15,26,48,"main"],[37,34,15,26,48,"main"],[10,35,15,26,48,"main"],[11,35,15,26,48,"main"],[12,35,15,26,48,"main"],[13,35,15,26,48,"main"],[14,35,15,26,48,"main"],[33,35,15,26,48,"main"],[34,35,15,26,48,"main"],[35,35,15,26,48,"main"],[36,35,15,26,48,"main"],[37,35,15,26,48,"main"],[10,36,15,26,48,"main"],[11,36,15,26,48,"main"],[12,36,15,26,48,"main"],[13,36,15,26,48,"main"],[14,36,15,26,48,"main"],[33,36,15,26,48,"main"],[34,36,15,26,48,"main"],[35,36,15,26,48,"main"],[36,36,15,26,48,"main"],[37,36,15,26,48,"main"],[10,37,15,26,48,"main"],[11,37,15,26,48,"main"],[12,37,15,26,48,"main"],[13,37,15,26,48,"main"],[14,37,15,26,48,"main"],[33,37,15,26,48,"main"],[34,37,15,26,48,"main"],[35,37,15,26,48,"main"],[36,37,15,26,48,"main"],[37,37,15,26,48,"main"],[10,38,15,26,48,"main"],[11,38,15,26,48,"main"],[12,38,15,26,48,"main"],[13,38,15,26,48,"main"],[14,38,15,26,48,"main"],[33,38,15,26,48,"main"],[34,38,15,26,48,"main"],[35,38,15,26,48,"main"],[36,38,15,26,48,"main"],[37,38,15,26,48,"main"],[10,39,15,26,48,"main"],[11,39,15,26,48,"main"],[12,39,15,26,48,"main"],[13,39,15,26,48,"main"],[14,39,15,26,48,"main"],[33,39,15,26,48,"main"],[34,39,15,26,48,"main"],[35,39,15,26,48,"main"],[36,39,15,26,48,"main"],[37,39,15,26,48,"main"],[10,40,15,26,48,"main"],[11,40,15,26,48,"main"],[12,40,15,26,48,"main"],[13,40,15,26,48,"main"],[14,40,15,26,48,"main"],[33,40,15,26,48,"main"],[34,40,15,26,48,"main"],[35,40,15,26,48,"main"],[36,40,15,26,48,"main"],[37,40,15,26,48,"main"],[10,41,15,26,48,"main"],[11,41,15,26,48,"main"],[12,41,15,26,48,"main"],[13,41,15,26,48,"main"],[14,41,15,26,48,"main"],[33,41,15,26,48,"main"],[34,41,15,26,48,"main"],[35,41,15,26,48,"main"],[36,41,15,26,48,"main"],[37,41,15,26,48,"main"]];
 
   // ==========================================
   // 2. Web Audio API 物理音效合成器
@@ -101,11 +101,49 @@
         gain.connect(this.ctx.destination);
         osc.start(t);
         osc.stop(t + 0.26);
+      } else if (name === "takeoff") {
+        // 1. 涡轮喷射加速音 (Turbine acceleration whistle)
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(180, t);
+        osc.frequency.exponentialRampToValueAtTime(1400, t + 0.9);
+        gain.gain.setValueAtTime(0.02, t);
+        gain.gain.linearRampToValueAtTime(0.22, t + 0.35);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.95);
+        osc.connect(gain);
+        gain.connect(this.ctx.destination);
+        osc.start(t);
+        osc.stop(t + 0.98);
+
+        // 2. 喷气尾焰白噪音气流 (Exhaust airflow hiss)
+        const dur = 0.95;
+        const noiseBuffer = this.ctx.createBuffer(1, Math.floor(this.ctx.sampleRate * dur), this.ctx.sampleRate);
+        const output = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noiseBuffer.length; i++) {
+          output[i] = (Math.random() * 2 - 1) * Math.min(1, i / (this.ctx.sampleRate * 0.25));
+        }
+        const noise = this.ctx.createBufferSource();
+        noise.buffer = noiseBuffer;
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = "bandpass";
+        filter.frequency.setValueAtTime(600, t);
+        filter.frequency.exponentialRampToValueAtTime(3600, t + dur);
+        filter.Q.setValueAtTime(2.5, t);
+        const noiseGain = this.ctx.createGain();
+        noiseGain.gain.setValueAtTime(0.05, t);
+        noiseGain.gain.linearRampToValueAtTime(0.25, t + 0.35);
+        noiseGain.gain.exponentialRampToValueAtTime(0.001, t + dur);
+        noise.connect(filter);
+        filter.connect(noiseGain);
+        noiseGain.connect(this.ctx.destination);
+        noise.start(t);
       }
     }
   }
 
   const sound = new SoundEngine();
+  window.rowsSound = sound;
 
   // ==========================================
   // 3. 辅助数学计算与物理残影
@@ -163,9 +201,9 @@
 
     const scaleFactor = options.scaleFactor || 1;
     const params = {
-      assembleMs: 1100,
-      staggerMs: 700,
-      gatherSpread: 4.2,
+      assembleMs: 620,
+      staggerMs: 240,
+      gatherSpread: 3.2,
       followLag: 10,
       scaleFactor: scaleFactor,
       ...options.params
@@ -209,7 +247,7 @@
         cx: midX + (-dy / dist) * dist * curveK,
         cy: midY + (dx / dist) * dist * curveK,
         p: options.settled ? 1 : 0,
-        rate: 0.75 + 0.5 * Math.random(),
+        rate: 0.92 + 0.28 * Math.random(),
         delay: Math.random() * params.staggerMs,
         born: options.settled,
         lx: options.originX,
@@ -479,7 +517,8 @@
     function renderParticles(ctx, tCanvas) {
       ctx.clearRect(0, 0, tCanvas.width, tCanvas.height);
 
-      const groups = ["main", "orange"];
+      // 确保橙色粒子压在黑色粒子图层下方 (先绘制 orange，后绘制 main 覆盖在上层)
+      const groups = ["orange", "main"];
       const streakMap = { main: [], orange: [] };
 
       for (const g of groups) {
@@ -511,16 +550,30 @@
           const moveDist = Math.hypot(moveX, moveY);
 
           // 颜色计算：
-          // 浅色模式：主色为原底色深蓝 rgb(15, 26, 48)，橙色为 rgb(255, 87, 34)
+          // 浅色模式：主色为原底色深蓝/黑 rgb(15, 26, 48)，橙色为 rgb(255, 87, 34)
           // 暗色模式：主色自适应为高亮亮蓝白 rgb(225, 232, 248)
+          const targetMainR = isDarkMode ? 225 : 15;
+          const targetMainG = isDarkMode ? 232 : 26;
+          const targetMainB = isDarkMode ? 248 : 48;
+
           let curR = p.r;
           let curG = p.g;
           let curB = p.b;
 
-          if (g === "main" && isDarkMode) {
-            curR = 225;
-            curG = 232;
-            curB = 248;
+          if (g === "main") {
+            if (isDarkMode) {
+              curR = targetMainR;
+              curG = targetMainG;
+              curB = targetMainB;
+            }
+          } else if (g === "orange") {
+            // 形变为小房子时，橙色平滑同化并压入深色底层
+            if (p.fm > 0) {
+              const emColor = easeSmooth(p.fm);
+              curR = Math.round(p.r + (targetMainR - p.r) * emColor);
+              curG = Math.round(p.g + (targetMainG - p.g) * emColor);
+              curB = Math.round(p.b + (targetMainB - p.b) * emColor);
+            }
           }
 
           if (moveDist >= 1.3) {
@@ -528,7 +581,14 @@
             addStreak(streakMap[g], streakBin(Math.min(moveDist, 7)), drawX, drawY, moveX * sLen, moveY * sLen);
           } else {
             ctx.fillStyle = `rgba(${curR}, ${curG}, ${curB}, 1)`;
-            ctx.fillRect(drawX, drawY, particlePixelSize, particlePixelSize);
+            if (g === "orange" && p.fm < 0.2) {
+              const rad = particlePixelSize * 0.54;
+              ctx.beginPath();
+              ctx.arc(drawX + rad, drawY + rad, rad, 0, Math.PI * 2);
+              ctx.fill();
+            } else {
+              ctx.fillRect(drawX, drawY, particlePixelSize, particlePixelSize);
+            }
           }
 
           p.px = drawX;
@@ -583,8 +643,11 @@
       }
     }
 
-    function setupArrowShape() {
-      const arrowPoints = [];
+    // ==========================================
+    // 目标变体形状：极简小房子图标 (屋顶 + 细缝 + 半圆底座)
+    // ==========================================
+    function setupHouseShape() {
+      const housePoints = [];
       const aw = Math.round(pw * scaleFactor);
       const ah = Math.round(ph * scaleFactor);
 
@@ -592,26 +655,65 @@
         for (let x = 0; x < aw; x++) {
           const nx = (x / aw) * 38;
           const ny = (y / ah) * 42;
-          const isStem = ny >= 13 && ny <= 38 && nx >= 16 && nx <= 22;
-          const isHead = ny < 22 && Math.abs(nx - 19) <= (22 - ny) * 0.95 && ny >= Math.abs(nx - 19) * 0.4;
-          if (isStem || isHead) {
-            arrowPoints.push([x, y]);
+
+          // 1. Roof (屋顶: 顶部微倒圆，斜边向下平缓延伸，底部水平切线)
+          let isRoof = false;
+          if (ny >= 7.0 && ny <= 18.0) {
+            const roofH = 11.0;
+            const progress = (ny - 7.0) / roofH;
+            const maxW = 3.2 + progress * 10.8; // 从顶点宽 3.2 延伸到底宽 14.0
+            isRoof = Math.abs(nx - 19) <= maxW;
+          }
+
+          // 2. Body (底座: 平顶，顶部微倒角，下部深 U 形圆角碗状)
+          let isBody = false;
+          if (ny >= 21.0 && ny <= 36.5) {
+            const topCornerRound = ny < 23.0 ? (23.0 - ny) * 0.8 : 0;
+            const bodyMaxW = 11.6 - topCornerRound;
+
+            if (ny <= 26.5) {
+              isBody = Math.abs(nx - 19) <= bodyMaxW;
+            } else {
+              const dx = Math.abs(nx - 19) / 11.6;
+              const dy = (ny - 26.5) / 10.0;
+              isBody = (dx * dx + dy * dy) <= 1.0;
+            }
+          }
+
+          if (isRoof || isBody) {
+            housePoints.push([x, y]);
           }
         }
       }
 
-      if (arrowPoints.length > 0) {
+      if (housePoints.length > 0) {
         altShape = true;
-        for (let i = 0; i < particles.length; i++) {
-          const mappedIdx = Math.floor((i / particles.length) * arrowPoints.length);
-          const [ax, ay] = arrowPoints[mappedIdx];
-          particles[i].ax = ax;
-          particles[i].ay = ay;
+        const sortedHouse = [...housePoints]
+          .sort((a, b) => (a[1] * 100 + a[0]) - (b[1] * 100 + b[0]));
+
+        // 1. 黑色/主色粒子完整构建小房子的完整轮廓与实体（屋顶+底座）
+        const mainParticles = particles.filter(p => p.group === "main")
+          .sort((a, b) => (a.hy * 100 + a.hx) - (b.hy * 100 + b.hx));
+
+        for (let i = 0; i < mainParticles.length; i++) {
+          const hIdx = Math.min(sortedHouse.length - 1, Math.floor((i / mainParticles.length) * sortedHouse.length));
+          const [ax, ay] = sortedHouse[hIdx];
+          mainParticles[i].ax = ax;
+          mainParticles[i].ay = ay;
+        }
+
+        // 2. 橙色粒子压在黑色底层内部，完全被黑色粒子图层覆盖
+        const orangeParticles = particles.filter(p => p.group === "orange");
+        for (let i = 0; i < orangeParticles.length; i++) {
+          const hIdx = Math.min(sortedHouse.length - 1, Math.floor(((i + 15) / (orangeParticles.length + 30)) * sortedHouse.length));
+          const [ax, ay] = sortedHouse[hIdx];
+          orangeParticles[i].ax = ax;
+          orangeParticles[i].ay = ay;
         }
       }
     }
 
-    setupArrowShape();
+    setupHouseShape();
 
     return {
       start() {
@@ -729,9 +831,10 @@
       this.setupAssembly();
       this.bindEvents();
 
-      setTimeout(() => {
+      // 即刻启动粒子聚拢动画，消弭进入时的空白停顿
+      requestAnimationFrame(() => {
         if (this.assembly) this.assembly.start();
-      }, 100);
+      });
     }
 
     setupAssembly(isSettled = false) {
@@ -882,7 +985,7 @@
           e.clientX >= lx - 44 && e.clientX <= lx + lw + 44 && e.clientY >= ly - 44 && e.clientY <= ly + lh + 44;
 
         const isDirectHit =
-          e.clientX >= lx - 8 && e.clientX <= lx + lw + 8 && e.clientY >= ly - 8 && e.clientY <= ly + lh + 8;
+          e.clientX >= lx - 12 && e.clientX <= lx + lw + 12 && e.clientY >= ly - 12 && e.clientY <= ly + lh + 12;
 
         const isCorner = this.scrollProgress > 0.6;
         if (isCorner && isDirectHit) {
@@ -971,9 +1074,21 @@
         const curTheme = document.documentElement.getAttribute("data-theme");
         const nextTheme = curTheme === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", nextTheme);
-        this.themeLabel.textContent = nextTheme === "dark" ? "Dark" : "Light";
+        localStorage.setItem("site-theme", nextTheme);
+        if (this.themeLabel) this.themeLabel.textContent = nextTheme === "dark" ? "Dark" : "Light";
         if (this.assembly) {
           this.assembly.setTheme(nextTheme === "dark");
+        }
+      });
+
+      // 监听跨页面主题变更实时同步
+      window.addEventListener("storage", (e) => {
+        if (e.key === "site-theme" && e.newValue) {
+          document.documentElement.setAttribute("data-theme", e.newValue);
+          if (this.themeLabel) this.themeLabel.textContent = e.newValue === "dark" ? "Dark" : "Light";
+          if (this.assembly) {
+            this.assembly.setTheme(e.newValue === "dark");
+          }
         }
       });
 
@@ -983,8 +1098,175 @@
         this.soundToggle.classList.toggle("sound-active", sound.enabled);
         this.soundToggle.classList.toggle("sound-on", sound.enabled);
       });
+
+      // 绑定 Rows.gg 官方 1:1「全部项目」蓄力发射交互
+      const moreBtn = document.getElementById("btn-view-all-projects");
+      if (moreBtn) {
+        moreBtn.addEventListener("click", (e) => {
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
+          e.preventDefault();
+          const href = moreBtn.getAttribute("href") || "projects.html";
+          triggerRowsDemoArrow(moreBtn, href);
+        });
+      }
     }
   }
+
+  // ==========================================
+  // 5. Rows.gg 官方 1:1 极简精工蓄力发射引擎 (Recoil -> Shake -> Shake2 -> Fire)
+  // ==========================================
+  function triggerRowsDemoArrow(btnEl, targetHref) {
+    if (!btnEl || btnEl.dataset.charging === "true") return;
+    btnEl.dataset.charging = "true";
+
+    const arrowEl = btnEl.querySelector(".rows-demo-arrow") || btnEl;
+    const timeouts = [];
+
+    if (sound) sound.play("open");
+
+    // 0ms -> 蓄力拉弓态 (-5px 微回拉，尾部紧绷缩进)
+    btnEl.setAttribute("data-charge", "recoil");
+
+    // 280ms -> 蓄力微震 (Soft Tension Shake)
+    timeouts.push(window.setTimeout(() => {
+      btnEl.setAttribute("data-charge", "shake");
+    }, 280));
+
+    // 620ms -> 临界高频剧震 (Hard Tension Shake)
+    timeouts.push(window.setTimeout(() => {
+      btnEl.setAttribute("data-charge", "shake2");
+      if (sound) sound.play("sort");
+    }, 620));
+
+    // 1020ms (整整 1.0 秒沉浸蓄力后) -> 破空起飞发射！
+    timeouts.push(window.setTimeout(() => {
+      btnEl.setAttribute("data-charge", "fire");
+
+      const rect = arrowEl.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // 创建固定层飞行箭头
+      const flyArrow = document.createElement("span");
+      flyArrow.setAttribute("aria-hidden", "true");
+      flyArrow.className = "demoArrowFly";
+      flyArrow.style.left = `${rect.left}px`;
+      flyArrow.style.top = `${rect.top}px`;
+      flyArrow.style.color = document.documentElement.getAttribute("data-theme") === "dark" ? "#ededed" : "#1a191d";
+      flyArrow.innerHTML = '<svg width="28" height="13" viewBox="0 0 28 13" fill="none" aria-hidden="true"><path d="M1 6.5h24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M21 3 25 6.5 21 10" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+      // 创建全屏独立微尘重力物理画布
+      const trailCanvas = document.createElement("canvas");
+      trailCanvas.className = "demoArrowTrail";
+      trailCanvas.width = Math.ceil(window.innerWidth * dpr);
+      trailCanvas.height = Math.ceil(window.innerHeight * dpr);
+      trailCanvas.style.width = `${window.innerWidth}px`;
+      trailCanvas.style.height = `${window.innerHeight}px`;
+
+      const ctx = trailCanvas.getContext("2d");
+      document.body.appendChild(trailCanvas);
+      document.body.appendChild(flyArrow);
+
+      if (sound) sound.play("bulletShot");
+
+      const flyDist = window.innerWidth - rect.left + 96;
+      const arrowMidY = rect.top + rect.height / 2;
+
+      const particles = [];
+      let startTime = performance.now();
+      let lastTime = startTime;
+      let particleAcc = 0;
+      let animId = 0;
+
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+      const dotColor = isDark ? "237, 237, 237" : "26, 25, 29";
+
+      function updateFlight(now) {
+        const dt = Math.min(0.04, (now - lastTime) / 1000);
+        lastTime = now;
+
+        const u = Math.min(1, (now - startTime) / 560);
+        const m = 1 - Math.pow(1 - u, 2.4); // 官方指数冲刺动力学
+        const currentPosX = rect.left + flyDist * m;
+
+        flyArrow.style.transform = `translate3d(${flyDist * m}px, 0, 0)`;
+
+        // 喷射 Rows.gg 精致微尘 (0.45px ~ 1.3px 极细颗粒)
+        if (u < 0.9) {
+          for (particleAcc += 420 * dt; particleAcc >= 1;) {
+            particleAcc -= 1;
+            const count = 2 + (Math.random() * 3 | 0);
+            for (let i = 0; i < count; i++) {
+              particles.push({
+                x: currentPosX + 14 * Math.random(),
+                y: arrowMidY + (Math.random() - 0.5) * 7,
+                vx: -20 - 160 * Math.random(),
+                vy: (Math.random() - 0.5) * 90,
+                life: 0.55 + 0.7 * Math.random(),
+                size: 0.45 + 0.85 * Math.random()
+              });
+            }
+          }
+        }
+
+        // 动力学：重力加速度 (1100px/s²) + 气流阻尼
+        for (const p of particles) {
+          p.vy += 1100 * dt;
+          p.vx *= (1 - 1.4 * dt);
+          p.x += p.vx * dt;
+          p.y += p.vy * dt;
+          p.life -= 1.05 * dt;
+        }
+
+        // 清理消散微尘
+        for (let i = particles.length - 1; i >= 0; i--) {
+          if (particles[i].life <= 0) {
+            particles.splice(i, 1);
+          }
+        }
+
+        // 渲染微尘点阵
+        if (ctx) {
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+          for (const p of particles) {
+            const alpha = Math.max(0, Math.min(1, p.life));
+            ctx.fillStyle = `rgba(${dotColor}, ${0.55 * alpha})`;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+          }
+        }
+
+        if (u < 1 || particles.length > 0) {
+          animId = requestAnimationFrame(updateFlight);
+        } else {
+          flyArrow.remove();
+          trailCanvas.remove();
+        }
+      }
+
+      animId = requestAnimationFrame(updateFlight);
+
+      // 创建或获取全屏转场幕布 (White / Background Curtain)
+      let curtain = document.querySelector(".page-transition-curtain");
+      if (!curtain) {
+        curtain = document.createElement("div");
+        curtain.className = "page-transition-curtain";
+        document.body.appendChild(curtain);
+      }
+
+      // 当箭头飞到中途 (200ms 后)，屏幕极度平滑地渐变为白色/底色
+      window.setTimeout(() => {
+        curtain.classList.add("is-active");
+      }, 200);
+
+      // 480ms 后（当整屏已被纯净底色柔和笼罩、箭头已飞出视口），无缝跳转页面
+      window.setTimeout(() => {
+        window.location.href = targetHref;
+      }, 480);
+
+    }, 1020));
+  }
+
+  window.triggerRowsDemoArrow = triggerRowsDemoArrow;
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", () => new CustomLogoApp());

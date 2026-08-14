@@ -505,29 +505,30 @@ body {
   justify-content: center;
   font-size: 11px;
   font-weight: 700;
+  background: #171717; /* 未选中状态：统一为经典墨黑 */
   color: #ffffff;
   flex-shrink: 0;
+  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s var(--ease-spring);
 }
 
-.pill-badge-num.red {
-  background: #e11d48;
+[data-theme="dark"] .pill-badge-num {
+  background: #262626;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.pill-badge-num.dark {
-  background: #171717;
+/* 选中状态 (Active)：统一使用 17 专属品牌主色（橙色 #ff5722） */
+.tracker-pill-item.active .pill-badge-num {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  transform: scale(1.08);
 }
 
-[data-theme="dark"] .pill-badge-num.dark {
-  background: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.pill-badge-num.amber {
-  background: #d97706;
-}
-
-.pill-badge-num.accent {
-  background: #ff5722;
+[data-theme="dark"] .tracker-pill-item.active .pill-badge-num {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
 }
 
 .pill-tag {
@@ -593,13 +594,166 @@ body {
   border-top: none;
 }
 
+.shotwell-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
 .section-caption-label {
   font-family: var(--font-mono);
   font-size: 11.5px;
   font-weight: 500;
   color: var(--ink-tertiary);
   text-transform: lowercase;
-  margin-bottom: 16px;
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Rows.gg 官方 1:1 纯粹精巧交互 (Minimalist Vector Stretch + 1.0s Tension Charge + Precision Trail)
+   ========================================================================== */
+
+.rows-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 14px 6px 16px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: background-color var(--duration-fast) ease,
+              border-color var(--duration-fast) ease,
+              box-shadow var(--duration-fast) ease,
+              transform var(--duration-fast) var(--ease-spring);
+  position: relative;
+  user-select: none;
+}
+
+.rows-more-btn:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.rows-more-text {
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.rows-more-btn svg {
+  display: block;
+  overflow: visible;
+}
+
+.rows-demo-arrow {
+  transform-origin: 0;
+  transition: transform 0.22s cubic-bezier(0.3, 0.8, 0.4, 1);
+  display: inline-flex;
+  transform: translate(0);
+}
+
+.rows-arrow-head {
+  transition: transform 0.34s cubic-bezier(0.3, 1.5, 0.4, 1);
+  transform: translate(0);
+}
+
+.rows-arrow-tail {
+  stroke-dasharray: 24;
+  stroke-dashoffset: 13px;
+  transition: stroke-dashoffset 0.34s cubic-bezier(0.3, 1.5, 0.4, 1);
+}
+
+/* 1. 悬停态：箭头头部前移 13px，尾部发丝线延伸拉长 */
+.rows-more-btn:hover:not([data-charge]) .rows-arrow-head {
+  transform: translate(13px);
+}
+
+.rows-more-btn:hover:not([data-charge]) .rows-arrow-tail {
+  stroke-dashoffset: 0;
+}
+
+/* 2. 点击蓄力状态 (data-charge="recoil" / "shake" / "shake2") */
+.rows-more-btn[data-charge="recoil"] .rows-demo-arrow,
+.rows-more-btn[data-charge="shake"] .rows-demo-arrow,
+.rows-more-btn[data-charge="shake2"] .rows-demo-arrow {
+  transition: transform 0.28s cubic-bezier(0.55, 0.05, 0.3, 1);
+  transform: translate(-5px);
+}
+
+.rows-more-btn[data-charge="recoil"] .rows-arrow-head,
+.rows-more-btn[data-charge="shake"] .rows-arrow-head,
+.rows-more-btn[data-charge="shake2"] .rows-arrow-head {
+  transition: transform 0.28s cubic-bezier(0.55, 0.05, 0.3, 1);
+  transform: translate(-2px);
+}
+
+.rows-more-btn[data-charge="recoil"] .rows-arrow-tail,
+.rows-more-btn[data-charge="shake"] .rows-arrow-tail,
+.rows-more-btn[data-charge="shake2"] .rows-arrow-tail {
+  stroke-dashoffset: 16px;
+  transition: stroke-dashoffset 0.28s cubic-bezier(0.55, 0.05, 0.3, 1);
+}
+
+/* 柔和微震 (Soft Shake) */
+@keyframes demoArrowShakeSoft {
+  0%, 100% { transform: translate(-5px) rotate(0deg); }
+  25% { transform: translate(-5.4px, -0.5px) rotate(-0.8deg); }
+  75% { transform: translate(-4.6px, 0.5px) rotate(0.8deg); }
+}
+
+/* 紧绷强震 (Hard Shake) */
+@keyframes demoArrowShakeHard {
+  0%, 100% { transform: translate(-5px) rotate(0deg); }
+  20% { transform: translate(-6.2px, -0.8px) rotate(-1.5deg); }
+  40% { transform: translate(-3.8px, 0.8px) rotate(1.5deg); }
+  60% { transform: translate(-5.8px, 0.6px) rotate(-1deg); }
+  80% { transform: translate(-4.2px, -0.6px) rotate(1deg); }
+}
+
+.rows-more-btn[data-charge="shake"] .rows-demo-arrow {
+  animation: 0.34s ease-in-out infinite demoArrowShakeSoft;
+}
+
+.rows-more-btn[data-charge="shake2"] .rows-demo-arrow {
+  animation: 0.12s ease-in-out infinite demoArrowShakeHard;
+}
+
+/* 3. 发射态 (Fire) */
+.rows-more-btn[data-charge="fire"] .rows-demo-arrow {
+  opacity: 0;
+  transition: none;
+}
+
+/* 独立飞行箭头 (Fixed Flying Arrow) */
+.demoArrowFly {
+  position: fixed;
+  z-index: 2147483000;
+  pointer-events: none;
+  will-change: transform;
+  display: inline-flex;
+  transform: translate3d(0, 0, 0);
+}
+
+.demoArrowFly svg {
+  display: block;
+  overflow: visible;
+}
+
+/* 细腻重力物理微尘画布 (Fixed Micro-Dust Trail Canvas) */
+.demoArrowTrail {
+  position: fixed;
+  inset: 0;
+  z-index: 2147482999;
+  pointer-events: none;
 }
 
 .shotwell-viewport {
@@ -628,8 +782,8 @@ body {
   background-color: var(--bg-card-subtle);
   background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 14px 14px;
-  border: none; /* 彻底去除外围描边 */
-  border-radius: var(--radius-lg); /* 统一大容器圆角 */
+  border: none;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   position: relative;
   display: flex;
@@ -637,7 +791,7 @@ body {
   justify-content: center;
   padding: 24px 28px;
   box-shadow: none;
-  transition: transform 0.2s var(--ease-spring), opacity 0.2s ease;
+  transition: transform 0.3s var(--ease-spring), background-color 0.25s ease;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -645,6 +799,7 @@ body {
 [data-theme="dark"] .shotwell-card {
   background-color: #1c1c1c;
   background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  border: none;
 }
 
 @media (min-width: 640px) {
@@ -654,7 +809,12 @@ body {
 }
 
 .shotwell-card:hover {
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  background-color: var(--bg-card-hover);
+}
+
+[data-theme="dark"] .shotwell-card:hover {
+  border: none;
 }
 
 /* 中心悬浮高保真 UI 画板 */
@@ -663,7 +823,7 @@ body {
   height: 100%;
   background: #ffffff;
   border-radius: 8px;
-  border: 1px solid var(--border);
+  border: none;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.04);
   padding: 16px 18px;
   display: flex;
@@ -671,11 +831,22 @@ body {
   justify-content: space-between;
   overflow: hidden;
   position: relative;
+  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+}
+
+.shotwell-card:hover .shotwell-artboard {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
 [data-theme="dark"] .shotwell-artboard {
   background: #15171e;
+  border: none;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.6), 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="dark"] .shotwell-card:hover .shotwell-artboard {
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 4px 14px rgba(0, 0, 0, 0.5);
 }
 
 /* 画板顶部微导航 */
@@ -726,7 +897,7 @@ body {
   height: 48px;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid var(--border-subtle);
+  border: none;
   flex-shrink: 0;
 }
 
@@ -755,7 +926,7 @@ body {
   max-width: 120px;
   height: 100%;
   background: #ffffff;
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 8px;
   padding: 8px 6px;
   display: flex;
@@ -768,12 +939,13 @@ body {
 
 [data-theme="dark"] .mobile-mockup-frame {
   background: #181b24;
+  border: none;
 }
 
 .mobile-mockup-frame.dark-modal {
   background: #111318;
   color: #ffffff;
-  border-color: rgba(255, 255, 255, 0.1);
+  border: none;
 }
 
 .mobile-time-bar {
@@ -963,3 +1135,389 @@ body {
     right: 18px;
   }
 }
+
+/* ==========================================================================
+   6. 页面转场白场幕布与渐进式级联登场动效 (Page Transition & Staggered Cascade)
+   ========================================================================== */
+
+.page-transition-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 9999999;
+  background-color: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+.page-transition-curtain.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 渐进式逐级浮现 (Progressive Staggered Reveal) */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.62s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+body.is-loaded .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 延迟阶梯 (Stagger Delays) */
+body.is-loaded .stagger-delay-1  { transition-delay: 0.04s; }
+body.is-loaded .stagger-delay-2  { transition-delay: 0.09s; }
+body.is-loaded .stagger-delay-3  { transition-delay: 0.15s; }
+body.is-loaded .stagger-delay-4  { transition-delay: 0.20s; }
+body.is-loaded .stagger-delay-5  { transition-delay: 0.26s; }
+body.is-loaded .stagger-delay-6  { transition-delay: 0.32s; }
+body.is-loaded .stagger-delay-7  { transition-delay: 0.38s; }
+body.is-loaded .stagger-delay-8  { transition-delay: 0.44s; }
+body.is-loaded .stagger-delay-9  { transition-delay: 0.50s; }
+body.is-loaded .stagger-delay-10 { transition-delay: 0.56s; }
+body.is-loaded .stagger-delay-11 { transition-delay: 0.62s; }
+body.is-loaded .stagger-delay-12 { transition-delay: 0.68s; }
+
+/* ==========================================================================
+   7. 项目列表独立页面样式 (Projects Archive Page)
+   ========================================================================== */
+
+.projects-page-container {
+  width: min(1160px, 92%);
+  margin: 0 auto;
+  padding: 48px 0 100px;
+}
+
+/* 顶部导航与返回条 */
+.projects-nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 48px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.btn-back-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-medium);
+  border-radius: 9999px;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.btn-back-home:hover {
+  background-color: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  transform: translateX(-2px);
+}
+
+.btn-back-home .back-arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.btn-back-home:hover .back-arrow {
+  transform: translateX(-4px);
+}
+
+.projects-hero-intro {
+  margin-bottom: 36px;
+}
+
+.projects-hero-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+  color: var(--ink);
+}
+
+.projects-hero-sub {
+  font-size: 14.5px;
+  color: var(--ink-secondary);
+  line-height: 1.6;
+  max-width: 100%;
+  white-space: normal;
+}
+
+@media (min-width: 840px) {
+  .projects-hero-sub {
+    white-space: nowrap;
+  }
+}
+
+/* 2列项目网格布局 (Clean 2-Column Shot-Well Grid) */
+.projects-grid-2col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 860px) {
+  .projects-grid-2col {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.projects-grid-2col .shotwell-card {
+  width: 100%;
+  flex-shrink: 1;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   8. 作品详情页样式 (Project Detail Page — Stacked Image Placeholders)
+   ========================================================================== */
+
+.detail-page-container {
+  width: min(1160px, 92%);
+  margin: 0 auto;
+  padding: 48px 0 100px;
+}
+
+.detail-images-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+.detail-image-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9.2;
+  min-height: 460px;
+  background-color: #E2E3E8;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--duration-fast) ease;
+}
+
+[data-theme="dark"] .detail-image-placeholder {
+  background-color: #1a1c24;
+}
+
+.detail-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.footer-email-btn:hover {
+  color: var(--ink) !important;
+  background-color: var(--border-subtle);
+}
+
+.archive-project-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
+}
+
+.card-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-family: var(--font-mono);
+  color: var(--ink-tertiary);
+}
+
+.card-category-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.card-project-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 6px;
+}
+
+.card-project-desc {
+  font-size: 13.5px;
+  color: var(--ink-secondary);
+  line-height: 1.55;
+}
+
+.card-artboard-preview {
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--bg-card-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 14px;
+  min-height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-tags-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.stack-tag {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background-color: var(--bg-card-subtle);
+  color: var(--ink-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.card-action-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.card-date-label {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-tertiary);
+}
+
+.btn-card-explore {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 0;
+  transition: color var(--duration-fast) ease;
+}
+
+.btn-card-explore:hover {
+  color: var(--accent);
+}
+
+.btn-card-explore .explore-arrow {
+  transition: transform var(--duration-fast) var(--ease-spring);
+}
+
+.btn-card-explore:hover .explore-arrow {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   全局轻量提示 (Global Floating Toast Notification)
+   ========================================================================== */
+.global-toast {
+  position: fixed;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: var(--bg-card);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: 13.5px;
+  font-weight: 500;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 12px 32px -4px rgba(0, 0, 0, 0.12), 0 4px 12px rgba(0, 0, 0, 0.04);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  pointer-events: auto;
+  user-select: none;
+}
+
+.global-toast.toast-show {
+  animation: toastIn 0.32s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.global-toast.toast-hide {
+  animation: toastOut 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.toast-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(34, 197, 94, 0.14);
+  color: #16a34a;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .toast-icon {
+  background: rgba(34, 197, 94, 0.2);
+  color: #4ade80;
+}
+
+.toast-text {
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.toast-email-val {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  opacity: 0.8;
+  margin-left: 2px;
+}
+
+@keyframes toastIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -16px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@keyframes toastOut {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -12px) scale(0.96);
+  }
+}
+
