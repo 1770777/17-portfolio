@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>17 — UI/UX 设计师作品集</title>
-  <meta name="description" content="17 是一位专注于极简秩序与全感官体验的 UI/UX 设计师。将 1 个像素的底层规范与 7 维立体的流体动效深度融合。">
+  <meta name="description" content="17 是一位专注于产品策略、交互架构与设计系统的 UI/UX 设计师 & 产品构建者。">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="logo.png">
@@ -83,7 +83,8 @@
       </h1>
 
       <p class="hero-copy" style="margin-bottom: 0;">
-        你好，我是 <strong>17</strong>。在过去 7 年里，我专注于为成长型科技团队打造<strong>设计系统、流体微动效与沉浸式数字产品</strong>。将 <strong>1 个像素的底层规范</strong> 与 <strong>7 维立体的交互动效</strong> 深度融合。追求直觉自然的设计，推敲每一个不易察觉的工艺细节。
+        你好，我是 <strong>17</strong>，一名 <strong>UI/UX 设计师 & 产品构建者</strong>。<br>
+        专注于<strong>产品策略、交互架构与设计系统</strong>的全链路方案；善用 <strong>AI 编程</strong>实现从构思到代码的高速闭环，在严谨秩序与敏捷构建中打磨极致体验。
       </p>
     </section>
 
@@ -305,30 +306,7 @@
           </div>
         </li>
 
-        <li class="jib-exp-item">
-          <span class="jib-exp-date">2018 — 2020</span>
-          <div class="jib-exp-role-wrap">
-            <span class="jib-exp-role">Product Designer</span>
-            <span class="jib-exp-org">Divido</span>
-          </div>
-        </li>
-
-        <li class="jib-exp-item">
-          <span class="jib-exp-date">2017 — 2018</span>
-          <div class="jib-exp-role-wrap">
-            <span class="jib-exp-role">Product Designer</span>
-            <span class="jib-exp-org">Qonto</span>
-          </div>
-        </li>
-
-        <li class="jib-exp-item">
-          <span class="jib-exp-date">2014 — 2017</span>
-          <div class="jib-exp-role-wrap">
-            <span class="jib-exp-role">Product Designer</span>
-            <span class="jib-exp-org">Contentsquare</span>
-          </div>
-        </li>
-
+      </ul>
     </section>
 
     <!-- ==========================================
@@ -342,6 +320,8 @@
           </div>
 
           <div class="tracker-rows-list" id="dim-tracker-list">
+            <!-- 动态顺滑物理滑块 (避免闪烁，实现白底丝滑下滑动效) -->
+            <div class="tracker-sliding-indicator" id="tracker-sliding-indicator" aria-hidden="true"></div>
             
             <div class="tracker-pill-item active" data-dim="1">
               <div class="pill-left">
@@ -422,9 +402,9 @@
     <footer id="contact" class="footer-section">
       <div class="footer-box">
         <div class="footer-content-col">
-          <h3 class="footer-title">一起打造自然而然的数字产品。</h3>
+          <h3 class="footer-title">用界面诉说故事；以设计打动心灵</h3>
           <p class="footer-desc">
-            无论是设计系统搭建、AI 交互体验重构还是全栈产品设计，欢迎随时联系交流。
+            专注设计系统、复杂交互与全链路产品构建，欢迎随时来信探讨合作与灵感。
           </p>
         </div>
 
@@ -441,7 +421,7 @@
 
       <div class="footer-meta-bar">
         <span>现居北京 • UTC+8</span>
-        <button id="btn-back-to-top" class="btn-text-link" style="padding:0; font-size: 12px;">
+        <button id="btn-back-to-top" class="btn-text-link">
           ↑ 返回顶部 (Logo 飞回)
         </button>
       </div>
@@ -507,19 +487,129 @@
       }, 150);
     }
 
-    // 绑定 7 维交互追踪器点击
+    // 2. 7 维交互追踪器：物理平滑滑块 + 3秒自动轮播 + 智能暂停与自动回归
     const dimItems = document.querySelectorAll("#dim-tracker-list .tracker-pill-item");
     const dimHeading = document.getElementById("dim-heading");
     const dimDesc = document.getElementById("dim-desc");
+    const trackerListEl = document.getElementById("dim-tracker-list");
+    const trackerGlider = document.getElementById("tracker-sliding-indicator");
 
-    dimItems.forEach(item => {
+    let currentDimIndex = 0;
+    let autoSlideTimer = null;
+    let resumeTimeout = null;
+    let isUserHovering = false;
+
+    // 更新物理滑块位置 (平滑滑动，消除闪烁)
+    function updateSlidingIndicator(activeItem) {
+      if (!activeItem || !trackerGlider) return;
+      const topPos = activeItem.offsetTop;
+      const height = activeItem.offsetHeight;
+      trackerGlider.style.transform = `translate3d(0, ${topPos}px, 0)`;
+      trackerGlider.style.height = `${height}px`;
+      trackerGlider.style.opacity = "1";
+    }
+
+    function selectDimItem(index) {
+      if (index < 0 || index >= dimItems.length) return;
+      currentDimIndex = index;
+      dimItems.forEach((item, i) => {
+        if (i === index) {
+          item.classList.add("active");
+        } else {
+          item.classList.remove("active");
+        }
+      });
+      updateSlidingIndicator(dimItems[index]);
+      const dim = dimItems[index].getAttribute("data-dim");
+      updateSectionContent(dimHeading, dimDesc, DIM_DATA[dim]);
+    }
+
+    function clearTimers() {
+      if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
+        autoSlideTimer = null;
+      }
+      if (resumeTimeout) {
+        clearTimeout(resumeTimeout);
+        resumeTimeout = null;
+      }
+    }
+
+    function startAutoSlide() {
+      clearTimers();
+      if (isUserHovering) return;
+      autoSlideTimer = setInterval(() => {
+        if (isUserHovering) return;
+        currentDimIndex = (currentDimIndex + 1) % dimItems.length;
+        selectDimItem(currentDimIndex);
+      }, 3000);
+    }
+
+    function handleUserClick(index) {
+      clearTimers();
+      selectDimItem(index);
+      // 用户主动点击后，给予 4 秒充分阅读时间，若无进一步干预则平滑回归自动轮播
+      resumeTimeout = setTimeout(() => {
+        if (!isUserHovering) {
+          startAutoSlide();
+        }
+      }, 4000);
+    }
+
+    // 绑定用户点击事件
+    dimItems.forEach((item, index) => {
       item.addEventListener("click", () => {
-        dimItems.forEach(i => i.classList.remove("active"));
-        item.classList.add("active");
-        const dim = item.getAttribute("data-dim");
-        updateSectionContent(dimHeading, dimDesc, DIM_DATA[dim]);
+        handleUserClick(index);
       });
     });
+
+    // 鼠标悬停进入追踪器时暂停，移出（不干预时）平滑回归自动播放
+    if (trackerListEl) {
+      trackerListEl.addEventListener("mouseenter", () => {
+        isUserHovering = true;
+        clearTimers();
+      }, { passive: true });
+
+      trackerListEl.addEventListener("mouseleave", () => {
+        isUserHovering = false;
+        clearTimers();
+        // 移出后缓冲 1.5 秒回归自动轮播
+        resumeTimeout = setTimeout(() => {
+          if (!isUserHovering) {
+            startAutoSlide();
+          }
+        }, 1500);
+      }, { passive: true });
+
+      trackerListEl.addEventListener("touchstart", () => {
+        isUserHovering = true;
+        clearTimers();
+      }, { passive: true });
+
+      trackerListEl.addEventListener("touchend", () => {
+        isUserHovering = false;
+        clearTimers();
+        resumeTimeout = setTimeout(() => {
+          if (!isUserHovering) {
+            startAutoSlide();
+          }
+        }, 3500);
+      }, { passive: true });
+    }
+
+    // 初始化滑块位置与自动轮播
+    window.addEventListener("load", () => {
+      updateSlidingIndicator(dimItems[0]);
+    });
+    window.addEventListener("resize", () => {
+      updateSlidingIndicator(dimItems[currentDimIndex]);
+    });
+    // 立即初始化一次
+    setTimeout(() => {
+      updateSlidingIndicator(dimItems[0]);
+    }, 50);
+
+    startAutoSlide();
 
     // 绑定 Rows.gg 官方 1:1「全部项目」蓄力发射交互
     const moreBtn = document.getElementById("btn-view-all-projects");
