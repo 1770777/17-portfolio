@@ -209,8 +209,8 @@
       ...options.params
     };
 
-    // 质点平铺覆盖大小
-    const particlePixelSize = Math.max(1.6, scaleFactor + 0.35);
+    // 质点平铺覆盖大小 (大屏高分屏无缝连续覆盖，消除颗粒感)
+    const particlePixelSize = Math.max(2.2, scaleFactor * 1.25);
 
     const maxDim = Math.max(pw, ph) * scaleFactor;
     const spread = maxDim * params.gatherSpread;
@@ -648,13 +648,11 @@
     // ==========================================
     function setupHouseShape() {
       const housePoints = [];
-      const aw = Math.round(pw * scaleFactor);
-      const ah = Math.round(ph * scaleFactor);
 
-      for (let y = 0; y < ah; y++) {
-        for (let x = 0; x < aw; x++) {
-          const nx = (x / aw) * 38;
-          const ny = (y / ah) * 42;
+      for (let y = 0; y < 42; y++) {
+        for (let x = 0; x < 38; x++) {
+          const nx = x;
+          const ny = y;
 
           // 1. Roof (屋顶: 顶部微倒圆，斜边向下平缓延伸，底部水平切线)
           let isRoof = false;
@@ -681,7 +679,7 @@
           }
 
           if (isRoof || isBody) {
-            housePoints.push([x, y]);
+            housePoints.push([x * scaleFactor, y * scaleFactor]);
           }
         }
       }
@@ -817,11 +815,12 @@
       this.logoHeight = 42;
       this.scrollProgress = 0;
       this.isCornerHovered = false;
-      this.isReturningTop = false;
-
       this.homePos = { left: 0, top: 0 };
       this.cornerPos = { left: 40, top: 14 };
       this.currentPos = { left: 0, top: 0 };
+
+      this.autoShootTimer = null;
+      this.lastShootTime = Date.now();
 
       this.init();
     }
@@ -830,11 +829,43 @@
       this.handleResize();
       this.setupAssembly();
       this.bindEvents();
+      this.startAutoShootSchedule();
 
       // 即刻启动粒子聚拢动画，消弭进入时的空白停顿
       requestAnimationFrame(() => {
         if (this.assembly) this.assembly.start();
       });
+    }
+
+    startAutoShootSchedule() {
+      if (this.autoShootTimer) {
+        clearInterval(this.autoShootTimer);
+      }
+
+      // 每 20 秒检查并触发一次随机光子轰击
+      this.autoShootTimer = setInterval(() => {
+        // 1. 判断是否停留在首屏 (未深滚动且 Logo 处于首页位置)
+        const isAtHero = (window.scrollY || 0) < 100 && this.scrollProgress < 0.25;
+        // 2. 页面处于活跃状态且未被最小化
+        const isVisible = !document.hidden;
+        // 3. 距离上次射击时间至少 16 秒（避免手动点击后立即自动触发）
+        const timeSinceLast = Date.now() - this.lastShootTime;
+
+        if (isAtHero && isVisible && timeSinceLast >= 16000 && this.assembly && !this.isReturningTop) {
+          this.triggerRandomShoot();
+        }
+      }, 20000);
+    }
+
+    triggerRandomShoot() {
+      if (!this.assembly) return;
+      this.lastShootTime = Date.now();
+
+      const lx = this.currentPos.left + (this.logoWidth || 38) / 2;
+      const ly = this.currentPos.top + (this.logoHeight || 42) / 2;
+
+      sound.play("bulletShot");
+      this.assembly.shoot(lx * this.dpr, ly * this.dpr);
     }
 
     setupAssembly(isSettled = false) {
@@ -855,7 +886,17 @@
         scaleFactor: this.dpr,
         settled: isSettled,
         isDark: isDark,
-        onImpact: () => sound.play("bulletHit")
+        onImpact: () => {
+          sound.play("bulletHit");
+          window.dispatchEvent(
+            new CustomEvent("rows-logo-impact", {
+              detail: {
+                x: this.currentPos.left + (this.logoWidth || 38) / 2,
+                y: this.currentPos.top + (this.logoHeight || 42) / 2 - (window.scrollY || 0)
+              }
+            })
+          );
+        }
       });
 
       if (this.assembly && isSettled) {
@@ -1043,13 +1084,20 @@
               this.isReturningTop = false;
             }, 600);
           } else {
+            this.lastShootTime = Date.now();
             sound.play("bulletShot");
+            window.dispatchEvent(
+              new CustomEvent("rows-logo-shot", {
+                detail: { x: e.clientX, y: e.clientY }
+              })
+            );
             this.assembly.shoot(e.clientX * this.dpr, e.clientY * this.dpr);
           }
         }
       });
 
       document.getElementById("btn-shoot-test")?.addEventListener("click", () => {
+        this.lastShootTime = Date.now();
         const lx = this.currentPos.left + this.logoWidth / 2;
         const ly = this.currentPos.top + this.logoHeight / 2;
         sound.play("bulletShot");

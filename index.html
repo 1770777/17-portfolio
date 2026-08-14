@@ -30,6 +30,16 @@
   <!-- 全屏物理粒子 Canvas (Rows.gg 动力学引擎驱动) -->
   <canvas id="logo-assembly-canvas" class="logo-canvas" aria-hidden="true" data-logo-assembly-canvas="true"></canvas>
 
+  <!-- 全屏高级动态交互背景 (Aurora Glow + Precision Dot Grid) -->
+  <div class="hero-ambient-backdrop" id="hero-backdrop" aria-hidden="true">
+    <div class="hero-aurora-glow">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-orb hero-orb-3"></div>
+    </div>
+    <canvas id="hero-ambient-canvas" class="hero-ambient-canvas"></canvas>
+  </div>
+
   <!-- ==========================================
        1. 固定悬浮控制区 (Fixed Floating Anchors)
        ========================================== -->
@@ -69,23 +79,26 @@
   <main class="layout-container">
     
     <section class="hero-section">
-      <!-- 开篇 Logo 触发台 -->
-      <div class="hero-logo-wrapper">
-        <div id="hero-logo-trigger" class="hero-logo-anchor" title="点击激射光子轰击 Logo！">
-          <div id="home-logo-anchor" style="width: 38px; height: 42px; position: relative;">
-            <img src="logo-transparent.png" alt="17 Logo" width="38" height="42" data-home-logo-img="true">
+      <!-- 英雄区主体内容 -->
+      <div class="hero-content">
+        <!-- 开篇 Logo 触发台 -->
+        <div class="hero-logo-wrapper">
+          <div id="hero-logo-trigger" class="hero-logo-anchor" title="点击激射光子轰击 Logo！">
+            <div id="home-logo-anchor" style="width: 38px; height: 42px; position: relative;">
+              <img src="logo-transparent.png" alt="17 Logo" width="38" height="42" data-home-logo-img="true">
+            </div>
           </div>
         </div>
+
+        <h1 class="hero-headline">
+          用界面 诉说故事；以设计 打动心灵
+        </h1>
+
+        <p class="hero-copy" style="margin-bottom: 0;">
+          你好，我是 <strong>17</strong>，一名 <strong>UI/UX 设计师 & 产品构建者</strong>。<br>
+          专注于<strong>产品策略、交互架构与设计系统</strong>的全链路方案；善用 <strong>AI Coding</strong> 实现从构思到代码的高速闭环，在严谨秩序与敏捷构建中打磨极致体验。
+        </p>
       </div>
-
-      <h1 class="hero-headline">
-        用界面 诉说故事；以设计 打动心灵
-      </h1>
-
-      <p class="hero-copy" style="margin-bottom: 0;">
-        你好，我是 <strong>17</strong>，一名 <strong>UI/UX 设计师 & 产品构建者</strong>。<br>
-        专注于<strong>产品策略、交互架构与设计系统</strong>的全链路方案；善用 <strong>AI 编程</strong>实现从构思到代码的高速闭环，在严谨秩序与敏捷构建中打磨极致体验。
-      </p>
     </section>
 
     <!-- ==========================================
@@ -422,7 +435,7 @@
       <div class="footer-meta-bar">
         <span>现居北京 • UTC+8</span>
         <button id="btn-back-to-top" class="btn-text-link">
-          ↑ 返回顶部 (Logo 飞回)
+          ↑ 返回顶部
         </button>
       </div>
     </footer>
@@ -821,6 +834,9 @@
       document.body.removeChild(textArea);
     }
   </script>
+
+  <!-- Hero 区域高级动态交互背景引擎 -->
+  <script src="hero-ambient.js"></script>
 
   <!-- 物理粒子动力学引擎 (集成 Rows.gg 算法) -->
   <script src="rows-logo-engine.js"></script>
