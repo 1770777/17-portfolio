@@ -83,20 +83,43 @@
       });
     });
 
-    // 平滑返回首页过渡
-    function smoothNavigateBackHome(e) {
+    // 智能识别来源：如果是从项目列表进入，则返回项目列表；否则返回首页
+    const urlParams = new URLSearchParams(window.location.search);
+    const isFromProjects = urlParams.get("from") === "projects" || 
+                           (document.referrer && document.referrer.includes("projects.html"));
+    
+    const targetBackUrl = isFromProjects ? "projects.html" : "index.html";
+    const targetBackText = isFromProjects ? "返回项目列表" : "返回首页";
+
+    // 动态更新顶部与底部返回按钮文案与目标链接
+    const topBackBtn = document.getElementById("btn-back-home");
+    const bottomBackBtn = document.getElementById("btn-back-bottom");
+
+    function applyBackButtonInfo(btn) {
+      if (!btn) return;
+      btn.setAttribute("href", targetBackUrl);
+      btn.setAttribute("title", targetBackText);
+      const textSpan = btn.querySelector("span:last-child");
+      if (textSpan) textSpan.textContent = targetBackText;
+    }
+
+    applyBackButtonInfo(topBackBtn);
+    applyBackButtonInfo(bottomBackBtn);
+
+    // 平滑返回过渡
+    function smoothNavigateBack(e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
       e.preventDefault();
       if (pageCurtain) {
         pageCurtain.classList.add("is-active");
       }
       setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = targetBackUrl;
       }, 240);
     }
 
-    document.getElementById("btn-back-home")?.addEventListener("click", smoothNavigateBackHome);
-    document.getElementById("btn-back-bottom")?.addEventListener("click", smoothNavigateBackHome);
+    topBackBtn?.addEventListener("click", smoothNavigateBack);
+    bottomBackBtn?.addEventListener("click", smoothNavigateBack);
 
     // 邮箱复制与 Toast 轻提示逻辑
     let toastTimeout = null;
