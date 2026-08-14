@@ -421,10 +421,12 @@
          ========================================== -->
     <footer id="contact" class="footer-section">
       <div class="footer-box">
-        <h3 class="footer-title">一起打造自然而然的数字产品。</h3>
-        <p style="color: var(--ink-secondary); font-size: 14.5px; max-width: 520px;">
-          无论是设计系统搭建、AI 交互体验重构还是全栈产品设计，欢迎随时联系交流。
-        </p>
+        <div class="footer-content-col">
+          <h3 class="footer-title">一起打造自然而然的数字产品。</h3>
+          <p class="footer-desc">
+            无论是设计系统搭建、AI 交互体验重构还是全栈产品设计，欢迎随时联系交流。
+          </p>
+        </div>
 
         <div class="footer-actions">
           <button id="btn-copy-email" class="btn-pill-primary" onclick="copyContactEmail('yanjq957@gmail.com', this)">
@@ -546,6 +548,108 @@
         }, 240);
       });
     });
+
+    // 3. 项目卡片 3D 鼠标跟随微倾斜与光斑动力学系统 (3D Tilt & Specular Physics)
+    function initShotwellCard3DTilt() {
+      const cards = document.querySelectorAll(".shotwell-card");
+      if (!cards.length) return;
+
+      cards.forEach(card => {
+        // 动态注入光晕反射层 (如果不存在)
+        let glare = card.querySelector(".shotwell-glare");
+        if (!glare) {
+          glare = document.createElement("div");
+          glare.className = "shotwell-glare";
+          card.appendChild(glare);
+        }
+
+        const artboard = card.querySelector(".shotwell-artboard");
+        let bounds = null;
+        let rafId = null;
+        let targetRotateX = 0;
+        let targetRotateY = 0;
+        let currentRotateX = 0;
+        let currentRotateY = 0;
+        let isHovering = false;
+
+        function updateTransform() {
+          if (!isHovering) {
+            // 平滑阻尼回正
+            currentRotateX += (0 - currentRotateX) * 0.14;
+            currentRotateY += (0 - currentRotateY) * 0.14;
+
+            if (Math.abs(currentRotateX) < 0.05 && Math.abs(currentRotateY) < 0.05) {
+              card.style.transform = "";
+              card.style.zIndex = "";
+              card.style.transition = "";
+              if (artboard) {
+                artboard.style.transform = "";
+                artboard.style.transition = "";
+              }
+              if (glare) glare.style.opacity = "0";
+              rafId = null;
+              return;
+            }
+          } else {
+            // 平滑逼近目标角度 (二阶阻尼拟合，保证 60/120fps 无抖动)
+            currentRotateX += (targetRotateX - currentRotateX) * 0.16;
+            currentRotateY += (targetRotateY - currentRotateY) * 0.16;
+          }
+
+          card.style.transform = `perspective(1000px) rotateX(${currentRotateX.toFixed(2)}deg) rotateY(${currentRotateY.toFixed(2)}deg) translateY(-4px)`;
+          if (artboard) {
+            artboard.style.transform = `translateZ(12px)`;
+          }
+
+          rafId = requestAnimationFrame(updateTransform);
+        }
+
+        card.addEventListener("pointerenter", () => {
+          bounds = card.getBoundingClientRect();
+          isHovering = true;
+          card.style.zIndex = "10";
+          card.style.transition = "none";
+          if (artboard) artboard.style.transition = "transform 0.1s ease-out, box-shadow 0.3s ease";
+          if (glare) glare.style.opacity = "1";
+          if (!rafId) {
+            rafId = requestAnimationFrame(updateTransform);
+          }
+        });
+
+        card.addEventListener("pointermove", (e) => {
+          if (!bounds) bounds = card.getBoundingClientRect();
+          const posX = e.clientX - bounds.left;
+          const posY = e.clientY - bounds.top;
+
+          // 归一化 [-1, 1]
+          const normX = (posX / bounds.width - 0.5) * 2;
+          const normY = (posY / bounds.height - 0.5) * 2;
+
+          const maxTilt = 7; // 最大倾斜角度 7 度 (克制高级)
+          targetRotateY = normX * maxTilt;
+          targetRotateX = -normY * maxTilt;
+
+          if (glare) {
+            glare.style.background = `radial-gradient(circle at ${posX}px ${posY}px, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0) 65%)`;
+          }
+
+          if (!rafId) {
+            rafId = requestAnimationFrame(updateTransform);
+          }
+        });
+
+        card.addEventListener("pointerleave", () => {
+          isHovering = false;
+          bounds = null;
+        });
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initShotwellCard3DTilt);
+    } else {
+      initShotwellCard3DTilt();
+    }
 
     // 3. 全局邮箱复制与 Toast 优雅轻提示逻辑
     let toastTimeout = null;

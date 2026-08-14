@@ -764,16 +764,20 @@ body {
   overflow-x: auto;
   overscroll-behavior-x: none;
   -webkit-overflow-scrolling: touch;
-  margin-bottom: 72px;
-  padding-bottom: 4px;
+  margin-top: -24px;
+  margin-bottom: 48px;
+  padding-top: 28px;
+  padding-bottom: 36px;
 }
 
 .shotwell-track {
   display: flex;
   width: max-content;
-  gap: 12px;
+  gap: 16px;
   padding-left: max(24px, calc((100vw - min(880px, 90%)) / 2));
   padding-right: max(24px, calc((100vw - min(880px, 90%)) / 2));
+  padding-top: 8px;
+  padding-bottom: 12px;
 }
 
 .shotwell-card {
@@ -791,9 +795,12 @@ body {
   justify-content: center;
   padding: 24px 28px;
   box-shadow: none;
-  transition: transform 0.3s var(--ease-spring), background-color 0.25s ease;
   cursor: pointer;
   flex-shrink: 0;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  will-change: transform;
+  transition: background-color 0.25s ease, box-shadow 0.3s ease;
 }
 
 [data-theme="dark"] .shotwell-card {
@@ -809,12 +816,30 @@ body {
 }
 
 .shotwell-card:hover {
-  transform: translateY(-4px);
   background-color: var(--bg-card-hover);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.03);
 }
 
 [data-theme="dark"] .shotwell-card:hover {
   border: none;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5), 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* 动态镜面反射高光层 (随鼠标位置移动) */
+.shotwell-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 65%);
+  opacity: 0;
+  mix-blend-mode: overlay;
+  transition: opacity 0.3s ease;
+  z-index: 15;
+}
+
+[data-theme="dark"] .shotwell-glare {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0) 65%);
 }
 
 /* 中心悬浮高保真 UI 画板 */
@@ -831,11 +856,12 @@ body {
   justify-content: space-between;
   overflow: hidden;
   position: relative;
-  transition: transform 0.3s var(--ease-spring), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+  transition: transform 0.25s var(--ease-spring), box-shadow 0.3s ease;
 }
 
 .shotwell-card:hover .shotwell-artboard {
-  transform: translateY(-2px) scale(1.01);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.08), 0 3px 8px rgba(0, 0, 0, 0.04);
 }
 
@@ -1083,8 +1109,17 @@ body {
 
 .footer-box {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer-content-col {
+  display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  max-width: 520px;
 }
 
 .footer-title {
@@ -1094,11 +1129,24 @@ body {
   color: var(--ink);
 }
 
+.footer-desc {
+  color: var(--ink-secondary);
+  font-size: 14.5px;
+  line-height: 1.6;
+}
+
 .footer-actions {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .footer-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
 }
 
 .footer-meta-bar {
@@ -1266,6 +1314,8 @@ body.is-loaded .stagger-delay-12 { transition-delay: 0.68s; }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  padding-top: 8px;
+  padding-bottom: 24px;
 }
 
 @media (max-width: 860px) {
@@ -1279,6 +1329,11 @@ body.is-loaded .stagger-delay-12 { transition-delay: 0.68s; }
   width: 100%;
   flex-shrink: 1;
   cursor: pointer;
+}
+
+/* 消除入场瀑布流对 3D 实时插值的 transition 干扰 */
+body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
+  transition: opacity 0.62s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease, box-shadow 0.3s ease;
 }
 
 /* ==========================================================================
