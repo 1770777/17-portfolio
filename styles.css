@@ -943,7 +943,7 @@ body {
 
 .shotwell-card {
   width: min(calc(100vw - var(--space-4)), 540px);
-  aspect-ratio: 1440 / 1024;
+  aspect-ratio: 540 / 325;
   background-color: var(--bg-card-subtle);
   background-image: radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 14px 14px;
@@ -954,14 +954,18 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-3) var(--space-4);
+  padding: 16px;
   box-shadow: none;
-  cursor: pointer;
+  cursor: default;
   flex-shrink: 0;
   transform-style: preserve-3d;
   perspective: 1000px;
   will-change: transform;
   transition: background-color 0.25s ease, box-shadow 0.3s ease;
+}
+
+.shotwell-card[data-project-url] {
+  cursor: pointer;
 }
 
 [data-theme="dark"] .shotwell-card {
@@ -972,7 +976,7 @@ body {
 
 @media (min-width: 640px) {
   .shotwell-card {
-    padding: var(--space-4) var(--space-4);
+    padding: 24px;
   }
 }
 
@@ -1034,6 +1038,29 @@ body {
 
 [data-theme="dark"] .shotwell-card:hover .shotwell-artboard {
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.8), 0 4px 14px rgba(0, 0, 0, 0.5);
+}
+
+/* 支持图片封面的画板 (四边等宽留白悬浮展示，16:9 无裁切) */
+.shotwell-artboard.has-cover-image {
+  padding: 0;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+}
+
+.artboard-cover-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: inherit;
+  pointer-events: none;
+  user-select: none;
 }
 
 /* 画板顶部微导航 */
@@ -1510,6 +1537,10 @@ body.is-loaded .stagger-delay-12 { transition-delay: 0.68s; }
 .projects-grid-2col .shotwell-card {
   width: 100%;
   flex-shrink: 1;
+  cursor: default;
+}
+
+.projects-grid-2col .shotwell-card[data-project-url] {
   cursor: pointer;
 }
 
@@ -1557,33 +1588,52 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
 .detail-images-stack {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2-5);
+  gap: 0;
   margin-top: var(--space-2);
+  border-radius: 0;
 }
 
 .detail-image-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 9.2;
-  min-height: 460px;
-  background-color: #E2E3E8;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  border-radius: 0;
+  overflow: visible;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color var(--duration-fast) ease;
+  display: block;
+  box-shadow: none;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  font-size: 0;
+}
+
+/* 消除高分屏/缩放时浏览器亚像素 (Sub-pixel) 渲染导致的 0.5px 露白微缝 */
+.detail-image-placeholder + .detail-image-placeholder {
+  margin-top: -1.5px;
 }
 
 [data-theme="dark"] .detail-image-placeholder {
-  background-color: #1a1c24;
+  background-color: transparent;
+  box-shadow: none;
 }
 
-.detail-image-placeholder img {
+.detail-image-placeholder img,
+.detail-stream-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
   display: block;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: bottom;
+  opacity: 0;
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.detail-image-placeholder img.is-loaded,
+.detail-stream-img.is-loaded {
+  opacity: 1;
 }
 
 .footer-email-btn {
@@ -1604,6 +1654,180 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
 .footer-email-btn:hover {
   color: var(--ink) !important;
   background-color: var(--border-subtle);
+}
+
+/* 浮动返回顶部按钮 (极简胶囊/圆角小箭头形态，滑动到第二屏时平滑浮现) */
+.back-to-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.03);
+  color: var(--ink);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px) scale(0.92);
+  transition: opacity 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.32s ease,
+              background-color 0.2s ease,
+              color 0.2s ease,
+              border-color 0.2s ease,
+              box-shadow 0.25s ease;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top-btn svg {
+  width: 17px;
+  height: 17px;
+  stroke-width: 2;
+  transition: transform 0.22s var(--ease-spring);
+}
+
+.back-to-top-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top-btn:hover {
+  color: var(--ink);
+  background: var(--bg-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.back-to-top-btn:hover svg {
+  transform: translateY(-2px);
+}
+
+.back-to-top-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+
+[data-theme="dark"] .back-to-top-btn {
+  background: rgba(28, 28, 30, 0.88);
+  border-color: rgba(255, 255, 255, 0.14);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="dark"] .back-to-top-btn:hover {
+  background: rgba(40, 40, 44, 0.95);
+  border-color: rgba(255, 255, 255, 0.26);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 640px) {
+  .back-to-top-btn {
+    bottom: 20px;
+    right: 18px;
+    width: 38px;
+    height: 38px;
+  }
+  .back-to-top-btn svg {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+/* ==========================================================================
+   详情页底部「其他项目」推荐板块 (More Projects Grid)
+   ========================================================================== */
+.detail-more-projects-section {
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-subtle);
+}
+
+.more-projects-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-3);
+}
+
+.more-projects-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.more-projects-badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.more-projects-view-all {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--ink-tertiary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.more-projects-view-all:hover {
+  color: var(--ink);
+}
+
+.more-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-2-5);
+}
+
+@media (max-width: 1040px) {
+  .more-projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 580px) {
+  .more-projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}
+
+.more-projects-grid .shotwell-card {
+  width: 100%;
+  flex-shrink: 1;
+  padding: 14px;
+}
+
+@media (min-width: 640px) {
+  .more-projects-grid .shotwell-card {
+    padding: 16px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .more-projects-grid .shotwell-card {
+    padding: 18px;
+  }
 }
 
 .archive-project-card:hover {
