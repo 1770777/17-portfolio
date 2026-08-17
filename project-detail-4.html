@@ -15,16 +15,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
-      // 1. 禁用浏览器历史滚动恢复，确保刷新/返回时始终重新定位到顶部
+      // 1. 彻底禁用浏览器历史滚动位置恢复
       if ('scrollRestoration' in history) {
         history.scrollRestoration = 'manual';
       }
-      window.scrollTo(0, 0);
-      window.addEventListener('pageshow', function() {
+
+      // 2. 页面在任何离开或刷新前，将记录在浏览器会话历史中的滚动位置强制归零
+      window.addEventListener('beforeunload', function() {
         window.scrollTo(0, 0);
       });
 
-      // 2. 初始化深浅色主题
+      // 3. 往返缓存 (Bfcache) 恢复时立即强制回顶
+      window.addEventListener('pageshow', function() {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+
+      // 4. DOM 解析前与 DOM 构建期双重强制回顶
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+
+      // 5. 初始化深浅色主题
       const saved = localStorage.getItem("site-theme") || 
         (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", saved);
