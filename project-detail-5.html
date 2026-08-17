@@ -15,28 +15,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
-      // 1. 彻底禁用浏览器历史滚动位置恢复
-      if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-      }
-
-      // 2. 页面在任何离开或刷新前，将记录在浏览器会话历史中的滚动位置强制归零
-      window.addEventListener('beforeunload', function() {
-        window.scrollTo(0, 0);
-      });
-
-      // 3. 往返缓存 (Bfcache) 恢复时立即强制回顶
-      window.addEventListener('pageshow', function() {
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
-      });
-
-      // 4. DOM 解析前与 DOM 构建期双重强制回顶
-      window.scrollTo(0, 0);
-      document.documentElement.scrollTop = 0;
-
-      // 5. 初始化深浅色主题
       const saved = localStorage.getItem("site-theme") || 
         (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", saved);
@@ -86,84 +64,84 @@
     <!-- 作品大图展示区域 (上下无缝拼接展示完整高保真设计长图 · 自顶向下优先级渐进加载) -->
     <main class="detail-images-stack stagger-item stagger-delay-2">
       
-      <!-- 设计图 1 (最高优先级首屏即时加载 - 2.5K 本地超清原图) -->
+      <!-- 设计图 1 (最高优先级首屏即时加载 - 倒序首图/封面) -->
       <div class="detail-image-placeholder" id="placeholder-1">
-        <img src="assets/projects/Solar移动端/Solar移动端01.jpg" alt="UI/UX Design Showcase 05 - Section 1" class="detail-stream-img" fetchpriority="high" decoding="async">
+        <img src="https://cdn.nodeimage.com/i/oVhkjZFi4OAv56gPUFg9BxCd1Nyyz9tE.webp" alt="UI/UX Design Showcase 05 - Section 1" class="detail-stream-img" fetchpriority="high" decoding="async">
       </div>
 
-      <!-- 设计图 2 (2.5K 本地超清原图) -->
+      <!-- 设计图 2 -->
       <div class="detail-image-placeholder" id="placeholder-2">
-        <img data-src="assets/projects/Solar移动端/Solar移动端02.jpg" alt="UI/UX Design Showcase 05 - Section 2" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/3qKdiJzdrIKj7y1nJba5wUCsmtQ2ehUP.webp" alt="UI/UX Design Showcase 05 - Section 2" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 3 (2.5K 本地超清原图) -->
+      <!-- 设计图 3 -->
       <div class="detail-image-placeholder" id="placeholder-3">
-        <img data-src="assets/projects/Solar移动端/Solar移动端03.jpg" alt="UI/UX Design Showcase 05 - Section 3" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/e9YDkExBacdawdu3a5uUrNxD3ZGOJXgf.webp" alt="UI/UX Design Showcase 05 - Section 3" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 4 (2.5K 本地超清原图) -->
+      <!-- 设计图 4 -->
       <div class="detail-image-placeholder" id="placeholder-4">
-        <img data-src="assets/projects/Solar移动端/Solar移动端04.jpg" alt="UI/UX Design Showcase 05 - Section 4" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/jAPPsZ9Oh0rUnd6szCtpVKZsn13Via6S.webp" alt="UI/UX Design Showcase 05 - Section 4" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 5 (2.5K 本地超清原图) -->
+      <!-- 设计图 5 -->
       <div class="detail-image-placeholder" id="placeholder-5">
-        <img data-src="assets/projects/Solar移动端/Solar移动端05.jpg" alt="UI/UX Design Showcase 05 - Section 5" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/wQ1z6Vp4WhBarDVxeVP1YtYWztpdKehJ.webp" alt="UI/UX Design Showcase 05 - Section 5" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 6 (2.5K 本地超清原图) -->
+      <!-- 设计图 6 -->
       <div class="detail-image-placeholder" id="placeholder-6">
-        <img data-src="assets/projects/Solar移动端/Solar移动端06.jpg" alt="UI/UX Design Showcase 05 - Section 6" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/uPsgJmInlsuTt5F7xNDduzwDv32U7sEa.webp" alt="UI/UX Design Showcase 05 - Section 6" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 7 (2.5K 本地超清原图) -->
+      <!-- 设计图 7 -->
       <div class="detail-image-placeholder" id="placeholder-7">
-        <img data-src="assets/projects/Solar移动端/Solar移动端07.jpg" alt="UI/UX Design Showcase 05 - Section 7" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/rFeLvhJdp0PRHPb0hnxoVDvE7fBTuGDZ.webp" alt="UI/UX Design Showcase 05 - Section 7" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 8 (2.5K 本地超清原图) -->
+      <!-- 设计图 8 -->
       <div class="detail-image-placeholder" id="placeholder-8">
-        <img data-src="assets/projects/Solar移动端/Solar移动端08.jpg" alt="UI/UX Design Showcase 05 - Section 8" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/FIYPIzxr6tUk03u097WXMcBjSCqKbgOM.webp" alt="UI/UX Design Showcase 05 - Section 8" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 9 (2.5K 本地超清原图) -->
+      <!-- 设计图 9 -->
       <div class="detail-image-placeholder" id="placeholder-9">
-        <img data-src="assets/projects/Solar移动端/Solar移动端09.jpg" alt="UI/UX Design Showcase 05 - Section 9" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/LeUJiBjmTMWugAwj8wIW0jqPVg3loeWd.webp" alt="UI/UX Design Showcase 05 - Section 9" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 10 (2.5K 本地超清原图) -->
+      <!-- 设计图 10 -->
       <div class="detail-image-placeholder" id="placeholder-10">
-        <img data-src="assets/projects/Solar移动端/Solar移动端10.jpg" alt="UI/UX Design Showcase 05 - Section 10" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/JPBewR8Pwx8Q7JQKWIZXTl1haTtgMdIG.webp" alt="UI/UX Design Showcase 05 - Section 10" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 11 (2.5K 本地超清原图) -->
+      <!-- 设计图 11 -->
       <div class="detail-image-placeholder" id="placeholder-11">
-        <img data-src="assets/projects/Solar移动端/Solar移动端11.jpg" alt="UI/UX Design Showcase 05 - Section 11" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/QHx9NEoFR6u9bB93UCp5d7imSkss76gX.webp" alt="UI/UX Design Showcase 05 - Section 11" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 12 (2.5K 本地超清原图) -->
+      <!-- 设计图 12 -->
       <div class="detail-image-placeholder" id="placeholder-12">
-        <img data-src="assets/projects/Solar移动端/Solar移动端12.jpg" alt="UI/UX Design Showcase 05 - Section 12" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/gjsQerISzaW9HvFcsNU48g6fYRHf8b0b.webp" alt="UI/UX Design Showcase 05 - Section 12" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 13 (2.5K 本地超清原图) -->
+      <!-- 设计图 13 -->
       <div class="detail-image-placeholder" id="placeholder-13">
-        <img data-src="assets/projects/Solar移动端/Solar移动端13.jpg" alt="UI/UX Design Showcase 05 - Section 13" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/53y5UBNNgrLOFO2X0tkm0fGxSW4YJcMh.webp" alt="UI/UX Design Showcase 05 - Section 13" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 14 (2.5K 本地超清原图) -->
+      <!-- 设计图 14 -->
       <div class="detail-image-placeholder" id="placeholder-14">
-        <img data-src="assets/projects/Solar移动端/Solar移动端14.jpg" alt="UI/UX Design Showcase 05 - Section 14" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/2ZNJhOd5LeVwLLB1XZHgkfQdDPxGcW9D.webp" alt="UI/UX Design Showcase 05 - Section 14" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 15 (2.5K 本地超清原图) -->
+      <!-- 设计图 15 -->
       <div class="detail-image-placeholder" id="placeholder-15">
-        <img data-src="assets/projects/Solar移动端/Solar移动端15.jpg" alt="UI/UX Design Showcase 05 - Section 15" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/eAfsqTV9B3fuKIZ3vS7dwKkx1Lb75qvw.webp" alt="UI/UX Design Showcase 05 - Section 15" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 16 (2.5K 本地超清原图) -->
+      <!-- 设计图 16 -->
       <div class="detail-image-placeholder" id="placeholder-16">
-        <img data-src="assets/projects/Solar移动端/Solar移动端16.jpg" alt="UI/UX Design Showcase 05 - Section 16" class="detail-stream-img" decoding="async">
+        <img data-src="https://cdn.nodeimage.com/i/HV2BB8G6cLRKXwJpp0B8mKJi7EkLgfk8.webp" alt="UI/UX Design Showcase 05 - Section 16" class="detail-stream-img" decoding="async">
       </div>
 
     </main>
@@ -176,31 +154,31 @@
       </div>
 
       <div class="more-projects-grid">
-        <!-- 推荐 1: 项目 1 (带封面图 - 本地高清资源) -->
+        <!-- 推荐 1: 项目 1 (带封面图) -->
         <div class="shotwell-card" data-project-url="project-detail.html?from=detail">
           <div class="shotwell-artboard has-cover-image">
-            <img src="assets/projects/Solar/Solar01.jpg" alt="Project 1 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+            <img src="https://cdn.nodeimage.com/i/YwyaLuNAtFUBW12pf4MRfCgPhsmDjtAM.webp" alt="Project 1 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- 推荐 2: 项目 2 (带封面图 - 本地高清资源) -->
+        <!-- 推荐 2: 项目 2 (带封面图) -->
         <div class="shotwell-card" data-project-url="project-detail-2.html?from=detail">
           <div class="shotwell-artboard has-cover-image">
-            <img src="assets/projects/ARROW/ARROW01.jpg" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+            <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- 推荐 3: 项目 3 (带封面图 - 本地高清资源) -->
+        <!-- 推荐 3: 项目 3 (带封面图) -->
         <div class="shotwell-card" data-project-url="project-detail-3.html?from=detail">
           <div class="shotwell-artboard has-cover-image">
-            <img src="assets/projects/华兴Dashboard/华兴Dashboard01.jpg" alt="Project 3 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+            <img src="https://cdn.nodeimage.com/i/kaMPTOuEryb2H9pcGYnJseWnvORFoao3.webp" alt="Project 3 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
           </div>
         </div>
 
-        <!-- 推荐 4: 项目 4 (带封面图 - 本地高清资源) -->
+        <!-- 推荐 4: 项目 4 (带封面图) -->
         <div class="shotwell-card" data-project-url="project-detail-4.html?from=detail">
           <div class="shotwell-artboard has-cover-image">
-            <img src="assets/projects/华航出行/华航出行01.jpg" alt="Project 4 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+            <img src="https://cdn.nodeimage.com/i/21tDvHLzhrKbF94xNewNwgtcS5hc1CsA.webp" alt="Project 4 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
           </div>
         </div>
       </div>
