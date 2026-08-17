@@ -15,6 +15,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
+      // 1. 禁用浏览器历史滚动恢复，确保刷新/返回时始终重新定位到顶部
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      window.addEventListener('pageshow', function() {
+        window.scrollTo(0, 0);
+      });
+
+      // 2. 初始化深浅色主题
       const saved = localStorage.getItem("site-theme") || 
         (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", saved);
@@ -64,69 +74,69 @@
     <!-- 作品大图展示区域 (上下无缝拼接展示完整高保真设计长图 · 自顶向下优先级渐进加载) -->
     <main class="detail-images-stack stagger-item stagger-delay-2">
       
-      <!-- 设计图 1 (最高优先级首屏即时加载) -->
+      <!-- 设计图 1 (最高优先级首屏即时加载 - 2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-1">
-        <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="UI/UX Design Showcase 02 - Section 1" class="detail-stream-img" fetchpriority="high" decoding="async">
+        <img src="assets/projects/arrow/ARROW01.jpg" alt="UI/UX Design Showcase 02 - Section 1" class="detail-stream-img" fetchpriority="high" decoding="async">
       </div>
 
-      <!-- 设计图 2 -->
+      <!-- 设计图 2 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-2">
-        <img data-src="https://cdn.nodeimage.com/i/KQxlJroh7JpqM99nYCV3orJ3ngg7ye97.webp" alt="UI/UX Design Showcase 02 - Section 2" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW02.jpg" alt="UI/UX Design Showcase 02 - Section 2" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 3 -->
+      <!-- 设计图 3 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-3">
-        <img data-src="https://cdn.nodeimage.com/i/shdxh3UwtXBvxolB41abmsqcizxDcN7l.webp" alt="UI/UX Design Showcase 02 - Section 3" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW03.jpg" alt="UI/UX Design Showcase 02 - Section 3" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 4 -->
+      <!-- 设计图 4 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-4">
-        <img data-src="https://cdn.nodeimage.com/i/kMgBsm7VA15N2ldeujKBoqlFljEy6wcL.webp" alt="UI/UX Design Showcase 02 - Section 4" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW04.jpg" alt="UI/UX Design Showcase 02 - Section 4" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 5 -->
+      <!-- 设计图 5 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-5">
-        <img data-src="https://cdn.nodeimage.com/i/2VDlicqWDcIbS70t3BRY9dzVwKCrn9o4.webp" alt="UI/UX Design Showcase 02 - Section 5" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW05.jpg" alt="UI/UX Design Showcase 02 - Section 5" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 6 -->
+      <!-- 设计图 6 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-6">
-        <img data-src="https://cdn.nodeimage.com/i/eQ9MeGQM1I5qR7kaCosuV4Y3ujDVgLPG.webp" alt="UI/UX Design Showcase 02 - Section 6" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW06.jpg" alt="UI/UX Design Showcase 02 - Section 6" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 7 -->
+      <!-- 设计图 7 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-7">
-        <img data-src="https://cdn.nodeimage.com/i/azNQzgd3gvBv43BNNUKqNYAXZ3QzJlt8.webp" alt="UI/UX Design Showcase 02 - Section 7" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW07.jpg" alt="UI/UX Design Showcase 02 - Section 7" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 8 -->
+      <!-- 设计图 8 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-8">
-        <img data-src="https://cdn.nodeimage.com/i/xo8DyJwNcsdWCDPkJZfH68DNhcMAiSrW.webp" alt="UI/UX Design Showcase 02 - Section 8" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW08.jpg" alt="UI/UX Design Showcase 02 - Section 8" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 9 -->
+      <!-- 设计图 9 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-9">
-        <img data-src="https://cdn.nodeimage.com/i/LzxGevouxUZjD29TqhqdyXdxSJFWMI8g.webp" alt="UI/UX Design Showcase 02 - Section 9" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW09.jpg" alt="UI/UX Design Showcase 02 - Section 9" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 10 -->
+      <!-- 设计图 10 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-10">
-        <img data-src="https://cdn.nodeimage.com/i/ithKXnFzVQNUfmg2DhxClzwYBiTG5Tif.webp" alt="UI/UX Design Showcase 02 - Section 10" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW10.jpg" alt="UI/UX Design Showcase 02 - Section 10" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 11 -->
+      <!-- 设计图 11 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-11">
-        <img data-src="https://cdn.nodeimage.com/i/vrK4wNztYHBzsM1TffrU6GWBKmesfZtZ.webp" alt="UI/UX Design Showcase 02 - Section 11" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW11.jpg" alt="UI/UX Design Showcase 02 - Section 11" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 12 -->
+      <!-- 设计图 12 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-12">
-        <img data-src="https://cdn.nodeimage.com/i/AictoIH8QbpLcbWqWMbPsJkYbtnMYYfv.webp" alt="UI/UX Design Showcase 02 - Section 12" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW12.jpg" alt="UI/UX Design Showcase 02 - Section 12" class="detail-stream-img" decoding="async">
       </div>
 
-      <!-- 设计图 13 -->
+      <!-- 设计图 13 (2.5K 本地超清原图) -->
       <div class="detail-image-placeholder" id="placeholder-13">
-        <img data-src="https://cdn.nodeimage.com/i/VtvvOmBLSHA5CUnhyNSb37pSXuXjC6ih.webp" alt="UI/UX Design Showcase 02 - Section 13" class="detail-stream-img" decoding="async">
+        <img data-src="assets/projects/arrow/ARROW13.jpg" alt="UI/UX Design Showcase 02 - Section 13" class="detail-stream-img" decoding="async">
       </div>
 
     </main>

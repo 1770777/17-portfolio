@@ -15,6 +15,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
+      // 1. 禁用浏览器历史滚动恢复，确保刷新/返回时始终重新定位到顶部
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      window.addEventListener('pageshow', function() {
+        window.scrollTo(0, 0);
+      });
+
+      // 2. 初始化深浅色主题
       const saved = localStorage.getItem("site-theme") || 
         (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", saved);
@@ -131,10 +141,10 @@
           </div>
         </div>
 
-        <!-- 推荐 2: 项目 2 (带封面图) -->
+        <!-- 推荐 2: 项目 2 (带封面图 - 本地高清资源) -->
         <div class="shotwell-card" data-project-url="project-detail-2.html?from=detail">
           <div class="shotwell-artboard has-cover-image">
-            <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+            <img src="assets/projects/arrow/ARROW01.jpg" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
           </div>
         </div>
 
