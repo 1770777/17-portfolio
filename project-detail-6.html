@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>17Design</title>
-  <meta name="description" content="17 的 UI/UX 作品详情展示。">
+  <meta name="description" content="17 的 UI/UX 与图标动效设计作品展示。">
   <link rel="icon" type="image/png" href="logo.png">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="logo.png">
@@ -15,16 +15,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <script>
     (function() {
+      // 1. 禁用浏览器历史滚动恢复，确保刷新/返回时始终重新定位到顶部
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      window.scrollTo(0, 0);
+      window.addEventListener('pageshow', function() {
+        window.scrollTo(0, 0);
+      });
+
+      // 2. 初始化深浅色主题
       const saved = localStorage.getItem("site-theme") || 
         (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
       document.documentElement.setAttribute("data-theme", saved);
     })();
   </script>
 </head>
-<body class="project-detail-body">
+<body class="project-detail-body is-loaded">
 
   <!-- 全屏白场平滑淡入淡出转场幕布 -->
-  <div class="page-transition-curtain is-active" id="page-curtain"></div>
+  <div class="page-transition-curtain" id="page-curtain"></div>
 
   <div class="detail-page-container">
 
@@ -36,7 +46,7 @@
       </a>
 
       <div style="display: flex; align-items: center; gap: var(--space-1-5);">
-        <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-tertiary);">17.PORTFOLIO / UI·UX</span>
+        <span style="font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-tertiary);">17.PORTFOLIO / MOTION·ICON</span>
         <button id="btn-theme-toggle" class="theme-toggle-btn" title="切换深浅色主题" aria-label="切换深浅色主题">
           <svg class="theme-toggle-svg" viewBox="0 0 24 24" aria-hidden="true" width="20" height="20">
             <defs>
@@ -61,89 +71,103 @@
       </div>
     </header>
 
-    <!-- 作品大图展示区域 (上下无缝拼接展示完整高保真设计长图 · 自顶向下优先级渐进加载) -->
+    <!-- 作品大图展示区域 (上下无缝拼接展示完整高保真设计长图 · 无圆角无投影) -->
     <main class="detail-images-stack stagger-item stagger-delay-2">
       
-      <!-- 设计图 1 (最高优先级首屏即时加载 - 倒序首图/封面) -->
+      <!-- 第一页：主视觉长图/3D展板 (第一张图) -->
       <div class="detail-image-placeholder" id="placeholder-1">
-        <img src="https://cdn.nodeimage.com/i/oVhkjZFi4OAv56gPUFg9BxCd1Nyyz9tE.webp" alt="UI/UX Design Showcase 05 - Section 1" class="detail-stream-img" fetchpriority="high" decoding="async">
+        <video src="assets/projects/icon测试/第一页.mp4" autoplay loop muted playsinline preload="auto" class="detail-stream-video"></video>
       </div>
 
-      <!-- 设计图 2 -->
-      <div class="detail-image-placeholder" id="placeholder-2">
-        <img data-src="https://cdn.nodeimage.com/i/3qKdiJzdrIKj7y1nJba5wUCsmtQ2ehUP.webp" alt="UI/UX Design Showcase 05 - Section 2" class="detail-stream-img" decoding="async">
-      </div>
+      <!-- 第二部分：12个应急图标网格大盒子 (无圆角无投影，紧挨着第一页) -->
+      <div class="icon-showcase-container" id="placeholder-2">
+        <div class="icon-motion-grid">
+        
+        <!-- 01: 地质灾害_山体滑坡与泥石流 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/01_地质灾害_山体滑坡与泥石流.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 3 -->
-      <div class="detail-image-placeholder" id="placeholder-3">
-        <img data-src="https://cdn.nodeimage.com/i/e9YDkExBacdawdu3a5uUrNxD3ZGOJXgf.webp" alt="UI/UX Design Showcase 05 - Section 3" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 02: 火灾爆炸_燃气管道泄漏起火爆炸 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/02_火灾爆炸_燃气管道泄漏起火爆炸.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 4 -->
-      <div class="detail-image-placeholder" id="placeholder-4">
-        <img data-src="https://cdn.nodeimage.com/i/jAPPsZ9Oh0rUnd6szCtpVKZsn13Via6S.webp" alt="UI/UX Design Showcase 05 - Section 4" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 03: 地震灾害_房屋倒塌与人员被困 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/03_地震灾害_房屋倒塌与人员被困.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 5 -->
-      <div class="detail-image-placeholder" id="placeholder-5">
-        <img data-src="https://cdn.nodeimage.com/i/wQ1z6Vp4WhBarDVxeVP1YtYWztpdKehJ.webp" alt="UI/UX Design Showcase 05 - Section 5" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 04: 应急安置_避难所物资争抢与冲突 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/04_应急安置_避难所物资争抢与冲突.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 6 -->
-      <div class="detail-image-placeholder" id="placeholder-6">
-        <img data-src="https://cdn.nodeimage.com/i/uPsgJmInlsuTt5F7xNDduzwDv32U7sEa.webp" alt="UI/UX Design Showcase 05 - Section 6" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 05: 预警发布_手机应急预警广播与群众避险 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/05_预警发布_手机应急预警广播与群众避险.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 7 -->
-      <div class="detail-image-placeholder" id="placeholder-7">
-        <img data-src="https://cdn.nodeimage.com/i/rFeLvhJdp0PRHPb0hnxoVDvE7fBTuGDZ.webp" alt="UI/UX Design Showcase 05 - Section 7" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 06: 气象灾害_暴雨内涝与积水淹浸 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/06_气象灾害_暴雨内涝与积水淹浸.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 8 -->
-      <div class="detail-image-placeholder" id="placeholder-8">
-        <img data-src="https://cdn.nodeimage.com/i/FIYPIzxr6tUk03u097WXMcBjSCqKbgOM.webp" alt="UI/UX Design Showcase 05 - Section 8" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 07: 应急指挥_医疗救护与直升机救援调度 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/07_应急指挥_医疗救护与直升机救援调度.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 9 -->
-      <div class="detail-image-placeholder" id="placeholder-9">
-        <img data-src="https://cdn.nodeimage.com/i/LeUJiBjmTMWugAwj8wIW0jqPVg3loeWd.webp" alt="UI/UX Design Showcase 05 - Section 9" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 08: 交通中断_隧道塌方落石与路桥断裂 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/08_交通中断_隧道塌方落石与路桥断裂.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 10 -->
-      <div class="detail-image-placeholder" id="placeholder-10">
-        <img data-src="https://cdn.nodeimage.com/i/JPBewR8Pwx8Q7JQKWIZXTl1haTtgMdIG.webp" alt="UI/UX Design Showcase 05 - Section 10" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 09: 交通管制_道路塌陷封锁与警戒排险 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/09_交通管制_道路塌陷封锁与警戒排险.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 11 -->
-      <div class="detail-image-placeholder" id="placeholder-11">
-        <img data-src="https://cdn.nodeimage.com/i/QHx9NEoFR6u9bB93UCp5d7imSkss76gX.webp" alt="UI/UX Design Showcase 05 - Section 11" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 10: 设施损毁_供水断电与通信基站中断 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/10_设施损毁_供水断电与通信基站中断.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 12 -->
-      <div class="detail-image-placeholder" id="placeholder-12">
-        <img data-src="https://cdn.nodeimage.com/i/gjsQerISzaW9HvFcsNU48g6fYRHf8b0b.webp" alt="UI/UX Design Showcase 05 - Section 12" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 11: 余震避险_危房残墙震颤与抱头防砸 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/11_余震避险_危房残墙震颤与抱头防砸.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 13 -->
-      <div class="detail-image-placeholder" id="placeholder-13">
-        <img data-src="https://cdn.nodeimage.com/i/53y5UBNNgrLOFO2X0tkm0fGxSW4YJcMh.webp" alt="UI/UX Design Showcase 05 - Section 13" class="detail-stream-img" decoding="async">
-      </div>
+        <!-- 12: 危化品泄漏_有毒液体烟雾泄漏扩散 -->
+        <div class="icon-motion-card">
+          <div class="icon-motion-artboard">
+            <video src="assets/projects/icon测试/12_危化品泄漏_有毒液体烟雾泄漏扩散.mp4" autoplay loop muted playsinline preload="auto" class="icon-motion-video"></video>
+          </div>
+        </div>
 
-      <!-- 设计图 14 -->
-      <div class="detail-image-placeholder" id="placeholder-14">
-        <img data-src="https://cdn.nodeimage.com/i/2ZNJhOd5LeVwLLB1XZHgkfQdDPxGcW9D.webp" alt="UI/UX Design Showcase 05 - Section 14" class="detail-stream-img" decoding="async">
       </div>
-
-      <!-- 设计图 15 -->
-      <div class="detail-image-placeholder" id="placeholder-15">
-        <img data-src="https://cdn.nodeimage.com/i/eAfsqTV9B3fuKIZ3vS7dwKkx1Lb75qvw.webp" alt="UI/UX Design Showcase 05 - Section 15" class="detail-stream-img" decoding="async">
-      </div>
-
-      <!-- 设计图 16 -->
-      <div class="detail-image-placeholder" id="placeholder-16">
-        <img data-src="https://cdn.nodeimage.com/i/HV2BB8G6cLRKXwJpp0B8mKJi7EkLgfk8.webp" alt="UI/UX Design Showcase 05 - Section 16" class="detail-stream-img" decoding="async">
-      </div>
-
     </main>
 
     <!-- 底部「其他项目」推荐模块 (首页同款 Shot-Well 3D 动力学卡片) -->
@@ -205,7 +229,9 @@
   </div>
 
   <script>
-    // 监听滚动事件：滑动到第二屏时平滑浮现返回顶部按钮
+    // ==========================================
+    // 0. 返回顶部浮动按钮逻辑 (滑动超一屏触发)
+    // ==========================================
     const backToTopBtn = document.getElementById("btn-back-to-top");
     if (backToTopBtn) {
       let isVisible = false;
@@ -229,26 +255,39 @@
       });
     }
 
-    // 页面加载完成，移除白场幕布并触发渐进式瀑布入场
+    // ==========================================
+    // 1. 页面加载完成与入场触发
+    // ==========================================
     const pageCurtain = document.getElementById("page-curtain");
-    window.addEventListener("DOMContentLoaded", () => {
-      requestAnimationFrame(() => {
-        if (pageCurtain) {
-          pageCurtain.classList.remove("is-active");
-        }
-        document.body.classList.add("is-loaded");
-      });
-    });
+    function revealPage() {
+      if (pageCurtain) {
+        pageCurtain.classList.remove("is-active");
+      }
+      document.body.classList.add("is-loaded");
 
-    // 智能识别来源：如果是从项目列表进入，则返回项目列表；否则返回首页
+      // 确保页面内所有 video 均正确启动播放
+      document.querySelectorAll("video").forEach(v => {
+        v.play().catch(() => {});
+      });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", revealPage);
+    } else {
+      revealPage();
+    }
+    window.addEventListener("pageshow", revealPage);
+
+    // ==========================================
+    // 2. 智能识别来源：如果是从项目列表进入，则返回项目列表；否则返回首页
+    // ==========================================
     const urlParams = new URLSearchParams(window.location.search);
     const isFromProjects = urlParams.get("from") === "projects" || 
                            (document.referrer && document.referrer.includes("projects.html"));
     
     const targetBackUrl = isFromProjects ? "projects.html" : "index.html";
-    const targetBackText = isFromProjects ? "返回项目列表" : "返回首页";
+    const targetBackText = isFromProjects ? "返回全部项目" : "返回首页";
 
-    // 动态更新顶部与底部返回按钮文案与目标链接
     const topBackBtn = document.getElementById("btn-back-home");
     const bottomBackBtn = document.getElementById("btn-back-bottom");
 
@@ -263,7 +302,6 @@
     applyBackButtonInfo(topBackBtn);
     applyBackButtonInfo(bottomBackBtn);
 
-    // 平滑返回过渡
     function smoothNavigateBack(e) {
       if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
       e.preventDefault();
@@ -292,7 +330,9 @@
       });
     });
 
-    // 项目卡片 3D 鼠标跟随微倾斜与光斑动力学系统 (3D Tilt & Specular Physics)
+    // ==========================================
+    // 3. 项目卡片 3D 鼠标跟随微倾斜与光斑动力学系统
+    // ==========================================
     function initShotwellCard3DTilt() {
       const cards = document.querySelectorAll(".shotwell-card");
       if (!cards.length) return;
@@ -390,7 +430,9 @@
       initShotwellCard3DTilt();
     }
 
-    // 邮箱复制与 Toast 轻提示逻辑
+    // ==========================================
+    // 4. 邮箱复制与 Toast 轻提示逻辑
+    // ==========================================
     let toastTimeout = null;
     function showToast(message, email) {
       let toast = document.getElementById("global-toast");
@@ -467,7 +509,9 @@
       document.body.removeChild(textArea);
     }
 
-    // 主题切换与系统偏好实时同步
+    // ==========================================
+    // 5. 主题切换与系统偏好实时同步
+    // ==========================================
     const themeBtn = document.getElementById("btn-theme-toggle");
     if (themeBtn) {
       themeBtn.addEventListener("click", () => {
@@ -478,7 +522,6 @@
       });
     }
 
-    // 监听系统亮暗偏好实时变更 (跟随系统)
     if (window.matchMedia) {
       window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (e) => {
         if (!localStorage.getItem("site-theme")) {
@@ -487,103 +530,11 @@
       });
     }
 
-    // 跨页面主题变更实时同步
     window.addEventListener("storage", (e) => {
       if (e.key === "site-theme" && e.newValue) {
         document.documentElement.setAttribute("data-theme", e.newValue);
       }
     });
-
-    // ==========================================================================
-    // 智能自顶向下顺序优先级渐进加载引擎 (Top-Down Sequential Progressive Loader)
-    // 弱网环境下严格限制并发数优先从上到下按序加载，同时结合视口加急感知
-    // ==========================================================================
-    function initProgressiveImageStream() {
-      const streamImgs = Array.from(document.querySelectorAll(".detail-stream-img"));
-      if (!streamImgs.length) return;
-
-      const loadedSet = new Set();
-      let activeLoadingCount = 0;
-      const MAX_CONCURRENT_DOWNLOADS = 2; // 限制同时下载数，集中带宽保证上方图片最快加载完成
-      let sequentialIndex = 0;
-
-      function triggerImageDownload(img) {
-        if (!img || loadedSet.has(img)) return;
-
-        if (!img.src && img.dataset.src) {
-          activeLoadingCount++;
-          img.src = img.dataset.src;
-
-          const handleFinish = () => {
-            img.classList.add("is-loaded");
-            loadedSet.add(img);
-            activeLoadingCount = Math.max(0, activeLoadingCount - 1);
-            pumpSequentialQueue();
-          };
-
-          if (img.complete && img.naturalWidth > 0) {
-            handleFinish();
-          } else {
-            img.onload = handleFinish;
-            img.onerror = handleFinish;
-          }
-        } else if (img.src) {
-          if (img.complete && img.naturalWidth > 0) {
-            img.classList.add("is-loaded");
-            loadedSet.add(img);
-          } else {
-            activeLoadingCount++;
-            const handleFirst = () => {
-              img.classList.add("is-loaded");
-              loadedSet.add(img);
-              activeLoadingCount = Math.max(0, activeLoadingCount - 1);
-              pumpSequentialQueue();
-            };
-            img.onload = handleFirst;
-            img.onerror = handleFirst;
-          }
-        }
-      }
-
-      function pumpSequentialQueue() {
-        while (activeLoadingCount < MAX_CONCURRENT_DOWNLOADS && sequentialIndex < streamImgs.length) {
-          const nextImg = streamImgs[sequentialIndex++];
-          if (nextImg && !loadedSet.has(nextImg)) {
-            triggerImageDownload(nextImg);
-          }
-        }
-      }
-
-      // 1. 优先触发第 1 张首屏大图并启动自上而下的顺序加载流水线
-      triggerImageDownload(streamImgs[0]);
-      sequentialIndex = 1;
-      pumpSequentialQueue();
-
-      // 2. 视口探测器 (IntersectionObserver)：若用户快速向下滚动，当前屏幕视口内的图片优先加急加载
-      if ("IntersectionObserver" in window) {
-        const viewportObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const targetImg = entry.target.querySelector(".detail-stream-img");
-              if (targetImg && !loadedSet.has(targetImg)) {
-                triggerImageDownload(targetImg);
-              }
-              viewportObserver.unobserve(entry.target);
-            }
-          });
-        }, { rootMargin: "400px 0px" });
-
-        document.querySelectorAll(".detail-image-placeholder").forEach(el => {
-          viewportObserver.observe(el);
-        });
-      }
-    }
-
-    if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", initProgressiveImageStream);
-    } else {
-      initProgressiveImageStream();
-    }
   </script>
 </body>
 </html>

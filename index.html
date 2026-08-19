@@ -96,7 +96,7 @@
 
         <p class="hero-copy" style="margin-bottom: 0;">
           我是 <strong>17</strong>，一名 <strong>UI/UX 设计师 & 产品构建者</strong>。<br>
-          专注于<strong>产品策略、交互架构与设计系统</strong>的全链路方案；善用 <strong>AI Coding</strong> 实现从构思到代码的高速闭环，在严谨秩序与敏捷构建中打磨极致体验。
+          专注于<strong>产品策略、交互架构与设计系统</strong>的全链路方案；善用 <strong>AI Coding</strong> 实现从构思到上线的高速闭环，在严谨秩序与敏捷构建中打磨极致体验。
         </p>
       </div>
     </section>
@@ -132,28 +132,35 @@
         </div>
       </div>
 
-      <!-- 项目 2：(封面使用第二项目第一张图) -->
+      <!-- 项目 2：(应急 3D 图标微动效合集 · 专属视频封面) -->
+      <div class="shotwell-card" data-project-url="project-detail-6.html?from=home">
+        <div class="shotwell-artboard has-cover-image">
+          <video src="assets/projects/icon测试/封面.mp4" autoplay loop muted playsinline preload="auto" class="artboard-cover-video"></video>
+        </div>
+      </div>
+
+      <!-- 项目 3：(封面使用原第二项目第一张图) -->
       <div class="shotwell-card" data-project-url="project-detail-2.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 3：(封面使用第三项目第一张图 - 倒序首图) -->
+      <!-- 项目 4：(封面使用第三项目第一张图 - 倒序首图) -->
       <div class="shotwell-card" data-project-url="project-detail-3.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <img src="https://cdn.nodeimage.com/i/kaMPTOuEryb2H9pcGYnJseWnvORFoao3.webp" alt="Project 3 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 4：(封面使用第四项目第一张图 - 倒序首图) -->
+      <!-- 项目 5：(封面使用第四项目第一张图 - 倒序首图) -->
       <div class="shotwell-card" data-project-url="project-detail-4.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <img src="https://cdn.nodeimage.com/i/21tDvHLzhrKbF94xNewNwgtcS5hc1CsA.webp" alt="Project 4 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 5：(封面使用第五项目第一张图 - 倒序首图) -->
+      <!-- 项目 6：(封面使用第五项目第一张图 - 倒序首图) -->
       <div class="shotwell-card" data-project-url="project-detail-5.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <img src="https://cdn.nodeimage.com/i/oVhkjZFi4OAv56gPUFg9BxCd1Nyyz9tE.webp" alt="Project 5 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
@@ -650,7 +657,7 @@
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </span>
-        <span class="toast-text">${message} ${emailHtml}</span>
+        <span class="toast-text">${message}${emailHtml}</span>
       `;
       
       toast.classList.remove("toast-hide");
@@ -680,7 +687,7 @@
         fallbackCopy(emailText);
       }
 
-      showToast("已成功复制 17 的联系邮箱", emailText);
+      showToast("复制成功", emailText);
 
       // 按钮即时微交互反馈
       if (btnEl) {

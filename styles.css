@@ -1052,7 +1052,8 @@ body {
   display: block;
 }
 
-.artboard-cover-img {
+.artboard-cover-img,
+.artboard-cover-video {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -1631,6 +1632,19 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
   transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+.detail-image-placeholder video,
+.detail-stream-video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  vertical-align: bottom;
+  background: transparent;
+}
+
 .detail-image-placeholder img.is-loaded,
 .detail-stream-img.is-loaded {
   opacity: 1;
@@ -2021,4 +2035,186 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
     opacity: 0;
     transform: translate(-50%, -12px) scale(0.96);
   }
+}
+
+/* ==========================================================================
+   10. 图标微动效外层大盒子 (#EBF4FB 浅蓝底板 · 白色 16:9 卡片画廊 · 无圆角无投影无缝堆叠)
+   ========================================================================== */
+.icon-showcase-container {
+  width: 100%;
+  background: #EBF4FB;
+  border-radius: 0;
+  border: none;
+  padding: 40px 58px 64px;
+  margin: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+}
+
+[data-theme="dark"] .icon-showcase-container {
+  background: #EBF4FB;
+  border: none;
+  box-shadow: none;
+}
+
+@media (max-width: 960px) {
+  .icon-showcase-container {
+    padding: 32px 32px 48px;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .icon-showcase-container {
+    padding: 24px 20px 40px;
+    border-radius: 0;
+  }
+}
+
+.icon-motion-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin: 0;
+  align-items: center;
+}
+
+@media (max-width: 960px) {
+  .icon-motion-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 580px) {
+  .icon-motion-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+}
+
+.icon-motion-card {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #ffffff;
+  border-radius: 8px;
+  border: none;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: none;
+  transition: transform 0.24s var(--ease-spring);
+}
+
+[data-theme="dark"] .icon-motion-card {
+  background: #ffffff;
+  border: none;
+  box-shadow: none;
+}
+
+.icon-motion-card:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .icon-motion-card:hover {
+  transform: translateY(-3px);
+  box-shadow: none;
+}
+
+.icon-motion-artboard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.icon-motion-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  border-radius: inherit;
+  mix-blend-mode: multiply;
+}
+
+.icon-motion-card.is-placeholder {
+  display: none;
+}
+
+.icon-motion-card.is-placeholder:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--border-subtle);
+}
+
+.icon-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  color: var(--ink-tertiary);
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.icon-placeholder-plus {
+  font-size: 20px;
+  line-height: 1;
+  opacity: 0.5;
+}
+
+/* ==========================================================================
+   项目 6 专属 4 格 2x2 蓝底微动效封面组件 (Quad Motion Icon 2x2 Cover)
+   ========================================================================== */
+.icon-cover-quad-artboard {
+  background: #386ED1 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.icon-cover-quad-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.icon-cover-quad-item {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 4px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.icon-cover-quad-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  mix-blend-mode: multiply;
 }

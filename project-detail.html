@@ -418,7 +418,7 @@
             <polyline points="20 6 9 17 4 12"></polyline>
           </svg>
         </span>
-        <span class="toast-text">${message} ${emailHtml}</span>
+        <span class="toast-text">${message}${emailHtml}</span>
       `;
       
       toast.classList.remove("toast-hide");
@@ -444,7 +444,7 @@
         fallbackCopy(emailText);
       }
 
-      showToast("已成功复制 17 的联系邮箱", emailText);
+      showToast("复制成功", emailText);
 
       if (btnEl) {
         const originalContent = btnEl.innerHTML;
