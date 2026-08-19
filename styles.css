@@ -1594,18 +1594,40 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
   border-radius: 0;
 }
 
+/* ==========================================================================
+   Skeleton 骨架屏系统 (Skeleton Shimmer System)
+   ========================================================================== */
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
 .detail-image-placeholder {
   width: 100%;
   border-radius: 0;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
   display: block;
   box-shadow: none;
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.03);
   margin: 0;
   padding: 0;
   line-height: 0;
   font-size: 0;
+  min-height: 480px;
 }
 
 /* 消除高分屏/缩放时浏览器亚像素 (Sub-pixel) 渲染导致的 0.5px 露白微缝 */
@@ -1613,9 +1635,47 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
   margin-top: -1.5px;
 }
 
+/* 骨架屏流动扫光伪元素 */
+.detail-image-placeholder::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.36s ease;
+}
+
 [data-theme="dark"] .detail-image-placeholder {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+[data-theme="dark"] .detail-image-placeholder::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    transparent 100%
+  );
+}
+
+/* 当图片/视频加载完成后，淡出骨架屏并恢复自适应高度 */
+.detail-image-placeholder.is-loaded {
+  min-height: unset;
   background-color: transparent;
-  box-shadow: none;
+}
+
+.detail-image-placeholder.is-loaded::before {
+  opacity: 0;
+  animation: none;
+  visibility: hidden;
 }
 
 .detail-image-placeholder img,
@@ -1629,6 +1689,8 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
   border: none;
   vertical-align: bottom;
   opacity: 0;
+  position: relative;
+  z-index: 2;
   transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -1643,11 +1705,149 @@ body.is-loaded .projects-grid-2col .shotwell-card.stagger-item {
   border: none;
   vertical-align: bottom;
   background: transparent;
+  opacity: 0;
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .detail-image-placeholder img.is-loaded,
-.detail-stream-img.is-loaded {
+.detail-stream-img.is-loaded,
+.detail-image-placeholder video.is-loaded,
+.detail-stream-video.is-loaded {
   opacity: 1;
+}
+
+/* ==========================================================================
+   项目 6 首图与 12 组 3D 图标动效卡片专属结构化骨架屏 (Project 6 Skeleton)
+   ========================================================================== */
+.banner-skeleton-loader {
+  position: absolute;
+  inset: 0;
+  background: #EBF4FB;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 32px 58px;
+  overflow: hidden;
+  z-index: 1;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.banner-skeleton-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    transparent 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.banner-skeleton-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.banner-skeleton-pill {
+  width: 72px;
+  height: 12px;
+  border-radius: 6px;
+  background: rgba(56, 110, 209, 0.15);
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.banner-skeleton-tag {
+  width: 40px;
+  height: 12px;
+  border-radius: 6px;
+  background: rgba(56, 110, 209, 0.15);
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.banner-skeleton-center {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 320px;
+}
+
+.banner-skeleton-title {
+  width: 220px;
+  height: 28px;
+  border-radius: 8px;
+  background: rgba(56, 110, 209, 0.18);
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.banner-skeleton-subtitle {
+  width: 160px;
+  height: 12px;
+  border-radius: 6px;
+  background: rgba(56, 110, 209, 0.12);
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.detail-image-placeholder.is-loaded .banner-skeleton-loader {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* 12 组 3D 图标动效卡片骨架屏 */
+.icon-motion-card .icon-skeleton-loader {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #ffffff;
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity 0.38s ease;
+  overflow: hidden;
+}
+
+.icon-motion-card .icon-skeleton-loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(235, 244, 251, 0) 0%,
+    rgba(235, 244, 251, 0.95) 50%,
+    rgba(235, 244, 251, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.5s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-skeleton-island {
+  width: 56px;
+  height: 36px;
+  border-radius: 10px;
+  background: rgba(56, 110, 209, 0.12);
+  position: relative;
+  animation: skeleton-pulse 1.8s infinite ease-in-out;
+}
+
+.icon-skeleton-badge {
+  width: 32px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(56, 110, 209, 0.08);
+}
+
+.icon-motion-card.is-loaded .icon-skeleton-loader {
+  opacity: 0;
+  visibility: hidden;
 }
 
 .footer-email-btn {

@@ -486,6 +486,8 @@
 
           const handleFinish = () => {
             img.classList.add("is-loaded");
+            const parentHolder = img.closest(".detail-image-placeholder");
+            if (parentHolder) parentHolder.classList.add("is-loaded");
             loadedSet.add(img);
             activeLoadingCount = Math.max(0, activeLoadingCount - 1);
             pumpSequentialQueue();
@@ -500,11 +502,15 @@
         } else if (img.src) {
           if (img.complete && img.naturalWidth > 0) {
             img.classList.add("is-loaded");
+            const parentHolder = img.closest(".detail-image-placeholder");
+            if (parentHolder) parentHolder.classList.add("is-loaded");
             loadedSet.add(img);
           } else {
             activeLoadingCount++;
             const handleFirst = () => {
               img.classList.add("is-loaded");
+              const parentHolder = img.closest(".detail-image-placeholder");
+              if (parentHolder) parentHolder.classList.add("is-loaded");
               loadedSet.add(img);
               activeLoadingCount = Math.max(0, activeLoadingCount - 1);
               pumpSequentialQueue();
