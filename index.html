@@ -121,49 +121,95 @@
 
   </main>
 
-  <!-- 突破版心的横向滑动画廊视口 (1:1 对标 jib.design Shot-Well: 纯灰无描边底槽 + 中心悬浮画板) -->
+  <!-- 突破版心的横向滑动画廊视口 (双行网格横滑：共用单一水平滚动条) -->
   <div class="shotwell-viewport no-scrollbar">
     <div class="shotwell-track">
       
-      <!-- 项目 1：(封面使用第一张图) -->
+      <!-- 第 1 列 / 上方：项目 1 (Solar 太阳能/设计系统) -->
       <div class="shotwell-card" data-project-url="project-detail.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <img src="https://cdn.nodeimage.com/i/YwyaLuNAtFUBW12pf4MRfCgPhsmDjtAM.webp" alt="Project 1 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 2：(应急 3D 图标微动效合集 · 专属视频封面) -->
+      <!-- 第 1 列 / 下方：项目 3 (应急协同平台) -->
+      <div class="shotwell-card" data-project-url="project-detail-2.html?from=home">
+        <div class="shotwell-artboard has-cover-image">
+          <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="Project 3 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- 第 2 列 / 上方：项目 2 (应急 3D 图标微动效合集 · 专属视频封面) -->
       <div class="shotwell-card" data-project-url="project-detail-6.html?from=home">
         <div class="shotwell-artboard has-cover-image">
           <video src="assets/projects/icon测试/封面.mp4" poster="assets/projects/icon测试/封面_poster.jpg" autoplay loop muted playsinline preload="auto" class="artboard-cover-video"></video>
         </div>
       </div>
 
-      <!-- 项目 3：(封面使用原第二项目第一张图) -->
-      <div class="shotwell-card" data-project-url="project-detail-2.html?from=home">
-        <div class="shotwell-artboard has-cover-image">
-          <img src="https://cdn.nodeimage.com/i/NzoUkYK3qqFiSNMtn3psFXPkCUviVyNi.webp" alt="Project 2 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
-        </div>
-      </div>
-
-      <!-- 项目 4：(封面使用第三项目第一张图 - 倒序首图) -->
+      <!-- 第 2 列 / 下方：项目 4 (智慧园区三维数字孪生) -->
       <div class="shotwell-card" data-project-url="project-detail-3.html?from=home">
         <div class="shotwell-artboard has-cover-image">
-          <img src="https://cdn.nodeimage.com/i/kaMPTOuEryb2H9pcGYnJseWnvORFoao3.webp" alt="Project 3 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+          <img src="https://cdn.nodeimage.com/i/kaMPTOuEryb2H9pcGYnJseWnvORFoao3.webp" alt="Project 4 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 5：(封面使用第四项目第一张图 - 倒序首图) -->
+      <!-- 第 3 列 / 上方：项目 5 (金融资产数据工作台) -->
       <div class="shotwell-card" data-project-url="project-detail-4.html?from=home">
         <div class="shotwell-artboard has-cover-image">
-          <img src="https://cdn.nodeimage.com/i/21tDvHLzhrKbF94xNewNwgtcS5hc1CsA.webp" alt="Project 4 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+          <img src="https://cdn.nodeimage.com/i/21tDvHLzhrKbF94xNewNwgtcS5hc1CsA.webp" alt="Project 5 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
         </div>
       </div>
 
-      <!-- 项目 6：(封面使用第五项目第一张图 - 倒序首图) -->
+      <!-- 第 3 列 / 下方：项目 7 (Qonto Next-Gen SaaS · 高密度虚拟表格) -->
+      <div class="shotwell-card" data-project-url="projects.html">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">QONTO_FINTECH.GRID</span>
+            <span>MILLION TRANSACTIONS</span>
+            <span>HIGH DENSITY</span>
+          </div>
+          <div style="margin: auto 0;">
+            <div style="display: flex; justify-content: space-between; font-size: 8px; font-family: var(--font-mono); color: var(--ink-secondary); border-bottom: 1px solid var(--border-subtle); padding-bottom: 4px;">
+              <span>TX_ID</span><span>ENTITY</span><span>AMOUNT</span><span>STATUS</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-size: 7.5px; font-family: var(--font-mono); color: var(--ink); padding-top: 4px;">
+              <span>#9082</span><span>Stripe Payout</span><span>+€14,250.00</span><span style="color: #10b981;">CLEARED</span>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>VIRTUALIZED TABLE SCROLLER</span>
+            <span>SMART STATE RECONCILE</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 第 4 列 / 上方：项目 6 (医疗健康全流程交互终端) -->
       <div class="shotwell-card" data-project-url="project-detail-5.html?from=home">
         <div class="shotwell-artboard has-cover-image">
-          <img src="https://cdn.nodeimage.com/i/oVhkjZFi4OAv56gPUFg9BxCd1Nyyz9tE.webp" alt="Project 5 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+          <img src="https://cdn.nodeimage.com/i/oVhkjZFi4OAv56gPUFg9BxCd1Nyyz9tE.webp" alt="Project 6 Cover" class="artboard-cover-img" loading="lazy" decoding="async">
+        </div>
+      </div>
+
+      <!-- 第 4 列 / 下方：项目 8 (Divido Checkout SDK · 3步免息结账) -->
+      <div class="shotwell-card" data-project-url="projects.html">
+        <div class="shotwell-artboard" style="display: flex; flex-direction: column; justify-content: space-between;">
+          <div class="artboard-nav">
+            <span class="artboard-brand">DIVIDO.CHECKOUT</span>
+            <span>0% APR INSTALLMENT</span>
+            <span>EMBEDDED SDK</span>
+          </div>
+          <div style="margin: auto 0; text-align: center;">
+            <div style="font-size: 9px; font-weight: 700; color: var(--ink); margin-bottom: 6px;">Pay in 3 Installments · 0% APR</div>
+            <div style="display: inline-flex; gap: 6px;">
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--border-medium); font-size: 7px; display:flex; align-items:center; justify-content:center;">1</div>
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--accent); color:#fff; font-size: 7px; display:flex; align-items:center; justify-content:center;">2</div>
+              <div style="width: 16px; height: 16px; border-radius: 50%; background: var(--border-medium); font-size: 7px; display:flex; align-items:center; justify-content:center;">3</div>
+            </div>
+          </div>
+          <div class="artboard-bottom-row" style="font-family: var(--font-mono); font-size: 8.5px; color: var(--ink-tertiary);">
+            <span>FRICTIONLESS 3-STEP APPROVAL</span>
+            <span>+34% CONVERSION BOOST</span>
+          </div>
         </div>
       </div>
 
