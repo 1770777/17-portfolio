@@ -666,30 +666,35 @@ body {
   justify-content: center;
   font-size: 11px;
   font-weight: 700;
-  background: #171717; /* 未选中状态：统一为经典墨黑 */
+  background-color: #171717; /* 未选中状态：统一为经典墨黑 */
   color: #ffffff;
   flex-shrink: 0;
-  transition: background-color 0.22s ease, color 0.22s ease, transform 0.22s var(--ease-spring);
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  -webkit-font-smoothing: antialiased;
+  transform: translateZ(0); /* 常驻 GPU 合成层，彻底消灭切换时的抗锯齿闪变与图层解除跳动 */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 
 [data-theme="dark"] .pill-badge-num {
-  background: #262626;
+  background-color: #262626;
   color: #ffffff;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-/* 选中状态 (Active)：统一使用 17 专属品牌主色（橙色 #ff5722） */
+/* 选中状态 (Active)：统一使用 17 专属品牌主色（橙色 #ff5722），尺寸稳定无缩放闪烁 */
 .tracker-pill-item.active .pill-badge-num {
-  background: var(--accent);
+  background-color: var(--accent);
   color: #ffffff;
-  border: none;
-  transform: scale(1.08);
+  border-color: transparent;
 }
 
 [data-theme="dark"] .tracker-pill-item.active .pill-badge-num {
-  background: var(--accent);
+  background-color: var(--accent);
   color: #ffffff;
-  border: none;
+  border-color: transparent;
 }
 
 .pill-tag {
