@@ -208,15 +208,11 @@
     </section>
 
     <!-- ==========================================
-         6. 左右双列版块：7 维交互追踪器 (位于工作经历下方)
+         6. 左右双列版块：通用演进模型 (PDCA) (位于工作经历下方)
          ========================================== -->
     <section id="framework" class="split-section">
       <div class="media-col">
         <div class="interactive-card">
-          <div class="card-top-bar">
-            <span class="card-title-text">7 维交互追踪器</span>
-          </div>
-
           <div class="tracker-rows-list" id="dim-tracker-list">
             <!-- 动态顺滑物理滑块 (避免闪烁，实现白底丝滑下滑动效) -->
             <div class="tracker-sliding-indicator" id="tracker-sliding-indicator" aria-hidden="true"></div>
@@ -224,7 +220,7 @@
             <div class="tracker-pill-item active" data-dim="1">
               <div class="pill-left">
                 <span class="pill-badge-num">1</span>
-                <span>1D 文字与语意 · 认知清晰度与人本文案</span>
+                <span>目标：穿透表象 以终为始</span>
               </div>
               <span class="pill-tag">01</span>
             </div>
@@ -232,7 +228,7 @@
             <div class="tracker-pill-item" data-dim="2">
               <div class="pill-left">
                 <span class="pill-badge-num">2</span>
-                <span>2D 视觉与栅格 · 8px 基准与原子化 Tokens</span>
+                <span>计划：寻找杠杆 拆解路径</span>
               </div>
               <span class="pill-tag">02</span>
             </div>
@@ -240,7 +236,7 @@
             <div class="tracker-pill-item" data-dim="3">
               <div class="pill-left">
                 <span class="pill-badge-num">3</span>
-                <span>3D 空间与景深 · Z 轴层级与空间计算</span>
+                <span>执行：知行合一 敏捷穿透</span>
               </div>
               <span class="pill-tag">03</span>
             </div>
@@ -248,7 +244,7 @@
             <div class="tracker-pill-item" data-dim="4">
               <div class="pill-left">
                 <span class="pill-badge-num">4</span>
-                <span>4D 时间与动效 · 60FPS 阻尼弹簧物理曲线</span>
+                <span>检查：直面真实 客观复盘</span>
               </div>
               <span class="pill-tag">04</span>
             </div>
@@ -256,25 +252,9 @@
             <div class="tracker-pill-item" data-dim="5">
               <div class="pill-left">
                 <span class="pill-badge-num">5</span>
-                <span>5D 行为与反馈 · 状态机闭环与触觉震动</span>
+                <span>改进：沉淀规则 复利跃迁</span>
               </div>
               <span class="pill-tag">05</span>
-            </div>
-
-            <div class="tracker-pill-item" data-dim="6">
-              <div class="pill-left">
-                <span class="pill-badge-num">6</span>
-                <span>6D 情境与多端 · 自适应深浅色与全端响应</span>
-              </div>
-              <span class="pill-tag">06</span>
-            </div>
-
-            <div class="tracker-pill-item" data-dim="7">
-              <div class="pill-left">
-                <span class="pill-badge-num">7</span>
-                <span>7D 情感与智能 · 意图预判与心流惊喜</span>
-              </div>
-              <span class="pill-tag">07</span>
             </div>
 
           </div>
@@ -282,13 +262,13 @@
       </div>
 
       <div class="copy-col">
-        <h2 class="copy-heading" id="dim-heading">1D 文字与语意：认知清晰度与人本文案</h2>
+        <h2 class="copy-heading" id="dim-heading">目标：穿透表象 以终为始</h2>
         <div class="copy-desc" id="dim-desc">
           <p>
-            语言是用户与数字界面建立信任的第一触点。专注于克制友好的微文案与精准的状态提示，在第一秒彻底抹平认知负荷。
+            做任何事的前提，是先想清楚“为什么做”与“终局是什么”。不被过程中的噪音与伪需求绑架，回归第一性原理，精准锁定不可动摇的核心原点。
           </p>
           <p>
-            优秀的设计文案如同空气：顺畅时自然无感，关键节点时给出确定的掌控感与安全指引。
+            将模糊的愿望收敛为清晰的衡量标准。“做正确的事”永远优先于“把事情做快”；方向清晰，后续的一切努力才能汇聚为不可阻挡的合力。
           </p>
         </div>
       </div>
@@ -329,42 +309,32 @@
        交互联动控制脚本 (7D 追踪器 / 品牌哲学)
        ========================================== -->
   <script>
-    // 1. 7 维交互追踪器数据 (全 7 维完整中文内容)
+    // 1. 通用演进模型数据 (目标-计划-执行-检查-改进 宏观方法论)
     const DIM_DATA = {
       "1": {
-        title: "1D 文字与语意：认知清晰度与人本文案",
-        p1: "语言是用户与数字界面建立信任的第一触点。专注于克制友好的微文案与精准的状态提示，在第一秒彻底抹平认知负荷。",
-        p2: "优秀的设计文案如同空气：顺畅时自然无感，关键节点时给出确定的掌控感与安全指引。"
+        title: "目标：穿透表象 以终为始",
+        p1: "做任何事的前提，是先想清楚“为什么做”与“终局是什么”。不被过程中的噪音与伪需求绑架，回归第一性原理，精准锁定不可动摇的核心原点。",
+        p2: "将模糊的愿望收敛为清晰的衡量标准。“做正确的事”永远优先于“把事情做快”；方向清晰，后续的一切努力才能汇聚为不可阻挡的合力。"
       },
       "2": {
-        title: "2D 视觉与栅格：8px 基准与原子化 Tokens",
-        p1: "视觉不仅是美学呈现，更是信息层级的无声向导。依托严密的 8px 基准网格与色彩语义规范，引导视线高效流转。",
-        p2: "消除任意性：所有间距、字号阶梯与组件尺寸均严格绑定 Design Tokens，保证全端像素级的秩序与一致性。"
+        title: "计划：寻找杠杆 拆解路径",
+        p1: "谋定而后动。把宏大目标拆解为可操作的执行链路与阶段里程碑，全盘推演边界条件、潜在风险与资源约束。",
+        p2: "在混沌中建立秩序，识别关键卡点并寻找以小博大的杠杆支点。真正优秀的计划不是繁杂的清单，而是严密的因果推演与确定性预案。"
       },
       "3": {
-        title: "3D 空间与景深：Z 轴层级与空间计算",
-        p1: "界面是富有纵深物理法则的三维数字空间。通过投影分层、毛玻璃模糊与视差透视，清晰定义视觉权重与空间关系。",
-        p2: "面向 VisionOS 与下一代空间计算，探索材质透光度、光影投射与视线手势追踪的全新立体深度范式。"
+        title: "执行：知行合一 敏捷穿透",
+        p1: "行动力是把构想转化为现实的唯一桥梁。告别精神内耗与纸上谈兵，用最小可行步骤快速切入，在推进中建立手感。",
+        p2: "保持高密度的专注与坚韧，以知行合一的态度穿透现实阻力。让每一个行动都有始有终，用持续交付的结果确立掌控感。"
       },
       "4": {
-        title: "4D 时间与动效：60FPS 阻尼弹簧物理曲线",
-        p1: "时间是界面的生命脉搏。采用二阶阻尼弹簧（Spring Physics）与非线性缓动曲线，让每一个微交互都饱含呼吸感。",
-        p2: "告别机械生硬的线性过渡，让界面元素拥有质量、惯性与弹性，在 180ms ~ 320ms 黄金时效内完成优雅响应。"
+        title: "检查：直面真实 客观复盘",
+        p1: "客观世界的反馈是检验一切行动的唯一准绳。跳出自我防御，不粉饰太平，以实事求是的坦诚直面数据差距与执行偏差。",
+        p2: "顺藤摸瓜展开深层因果溯源：不仅看结果是否达成，更审视最初的认知假设是否成立，让盲区与隐藏摩擦点无所遁形。"
       },
       "5": {
-        title: "5D 行为与反馈：状态机闭环与触觉震动",
-        p1: "每一次点击、滑动与手势，都应当得到精准、即时且符合直觉的状态响应，构建确定性的操作闭环。",
-        p2: "覆盖 Default / Hover / Active / Focus / Loading / Disabled 全状态机，配合毫秒级触觉震动与防抖撤销机制。"
-      },
-      "6": {
-        title: "6D 情境与多端：自适应深浅色与全端响应",
-        p1: "体验随情境而流动。无论是深浅色模式、多端响应式断点，还是环境光与多模态输入，系统都能给出最优呈现。",
-        p2: "从手机单手操作舒适区，到高密度桌面多窗口工作流，自适应重排保证各场景下的极致心流。"
-      },
-      "7": {
-        title: "7D 情感与智能：意图预判与心流惊喜",
-        p1: "超越“好用”，走向“动人”。结合 AI 意图预判与精心设计的惊喜彩蛋，传递品牌温度与心流认同。",
-        p2: "在用户意图产生之前预先加载，在繁复任务完成后给予恰到好处的情感鼓励，打造令人难忘的数字体验。"
+        title: "改进：沉淀规则 复利跃迁",
+        p1: "闭环的真谛不在于“完成一次循环”，而在于“每次循环后的层级跃迁”。把教训内化为直觉本能，把散碎经验沉淀为可复用的系统方法。",
+        p2: "解决一个问题，消除一类问题。通过机制重构与自我迭代，让每一次尝试都成为下一次更高起点破局的复利垫脚石。"
       }
     };
 
@@ -383,7 +353,7 @@
       }, 150);
     }
 
-    // 2. 7 维交互追踪器：物理平滑滑块 + 3秒自动轮播 + 智能暂停与自动回归
+    // 2. 通用演进模型：物理平滑滑块 + 3秒自动轮播 + 智能暂停与自动回归
     const dimItems = document.querySelectorAll("#dim-tracker-list .tracker-pill-item");
     const dimHeading = document.getElementById("dim-heading");
     const dimDesc = document.getElementById("dim-desc");
