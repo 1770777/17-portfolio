@@ -463,6 +463,74 @@ body {
   font-weight: 600;
 }
 
+/* 英雄区精炼一句话自我定位 (Hero Tagline) */
+.hero-tagline {
+  font-size: 15.5px;
+  line-height: 1.6;
+  color: var(--ink-secondary);
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.01em;
+}
+
+.hero-tagline strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .hero-tagline {
+  color: var(--ink-secondary);
+}
+
+[data-theme="dark"] .hero-tagline strong {
+  color: var(--ink);
+}
+
+/* 英雄区核心能力微胶囊标签组 (Hero Specialty Pills) */
+.hero-tags-group {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: 0;
+  margin-bottom: var(--space-4);
+}
+
+.hero-tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 13px;
+  background-color: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-full);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-secondary);
+  letter-spacing: -0.01em;
+  transition: all var(--duration-normal) var(--ease-spring);
+  cursor: default;
+  user-select: none;
+}
+
+.hero-tag-pill:hover {
+  background-color: rgba(0, 0, 0, 0.02);
+  color: var(--ink);
+  border-color: var(--ink);
+  transform: translateY(-1px);
+}
+
+[data-theme="dark"] .hero-tag-pill {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--ink-secondary);
+}
+
+[data-theme="dark"] .hero-tag-pill:hover {
+  background-color: rgba(255, 255, 255, 0.03);
+  border-color: rgba(255, 255, 255, 0.38);
+  color: var(--ink);
+}
+
 /* Rows.gg 经典按钮组 */
 .hero-cta-group {
   display: flex;
